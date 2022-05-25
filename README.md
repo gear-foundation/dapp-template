@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://gitpod.io/#https://github.com/gear-academy/app">
-    <img src="https://gitpod.io/button/open-in-gitpod.svg" width="240" alt="GitPod">
+    <img src="https://gitpod.io/button/open-in-gitpod.svg" width="240" alt="Gitpod">
   </a>
 </p>
 
@@ -26,7 +26,7 @@ Template application. Use this repository as a template when creating a new appl
 ## Initial checklist after creating a new repo
 
 - [ ] Change app name in `Cargo.toml`
-- [ ] Fix GitPod/badge/releases links in `README.md` (replace `gear-academy/app` with `gear-academy/<my-new-app>`)
+- [ ] Fix Gitpod/badge/releases links in `README.md` (replace `gear-academy/app` with `gear-academy/<my-new-app>`)
 - [ ] Add description in `README.md`
 - [ ] Remove this section
 

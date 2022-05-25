@@ -5,7 +5,7 @@ all: init build test
 build:
 	@echo ──────────── Build release ────────────────────
 	@cargo +nightly build --release
-	@ls -la ./target/wasm32-unknown-unknown/release/*.wasm
+	@ls -l ./target/wasm32-unknown-unknown/release/*.wasm
 
 clean:
 	@echo ──────────── Clean ────────────────────────────
@@ -26,7 +26,7 @@ init:
 
 linter:
 	@echo ──────────── Run linter ───────────────────────
-	@cargo +nightly clippy --workspace -- --no-deps -D warnings -A "clippy::missing_safety_doc"
+	@cargo +nightly clippy --all-targets -- --no-deps -D warnings -A "clippy::missing_safety_doc"
 
 pre-commit: fmt linter test
 
