@@ -3,7 +3,7 @@
 use gstd::{debug, msg, prelude::*};
 
 #[no_mangle]
-pub unsafe extern "C" fn handle() {
+unsafe extern "C" fn handle() {
     debug!("handle()");
     let payload = String::from_utf8(msg::load_bytes()).expect("Invalid handle message");
 
@@ -13,7 +13,7 @@ pub unsafe extern "C" fn handle() {
 }
 
 #[no_mangle]
-pub unsafe extern "C" fn init() {
+unsafe extern "C" fn init() {
     let payload = String::from_utf8(msg::load_bytes()).expect("Invalid init message");
     debug!("init(): {}", payload);
 }
