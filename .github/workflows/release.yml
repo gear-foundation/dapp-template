@@ -22,7 +22,7 @@ jobs:
       version: ${{ steps.version.outputs.VERSION }}
 
   build:
-    name: Build release binaries
+    name: Build
     needs: prepare
     runs-on: ubuntu-latest
     steps:
