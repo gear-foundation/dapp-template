@@ -41,6 +41,23 @@ jobs:
       - name: Build
         run: make build
 
+      - name: Rename binaries according to version
+        run: |
+          cd target/wasm32-unknown-unknown/release
+          for WASM in *.wasm; do
+            if [[ $WASM == *.opt.wasm ]]; then
+              NAME="${WASM%.opt.wasm}"
+              EXT="opt.wasm"
+            elif [[ $WASM == *.meta.wasm ]]; then
+              NAME="${WASM%.meta.wasm}"
+              EXT="meta.wasm"
+            else
+              NAME="${WASM%.wasm}"
+              EXT="wasm"
+            fi
+            mv "$WASM" "$NAME-${{ needs.prepare.outputs.version }}.$EXT"
+          done
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
