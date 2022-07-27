@@ -26,8 +26,9 @@ Template application. Use this repository as a template when creating a new appl
 ## Initial checklist after creating a new repo
 
 - [ ] Change app name in `Cargo.toml`
-- [ ] Fix Gitpod/badge/releases links in `README.md` (replace `gear-academy/app` with `gear-academy/<my-new-app>`)
+- [ ] Fix Gitpod/badge/releases links in `README.md` (replace `gear-dapps/app` with `gear-dapps/<my-new-app>`)
 - [ ] Add description in `README.md`
+- [ ] Fix dates, links, and initial commit hash in `CHANGELOG.md`
 - [ ] Remove this section
 
 ## Prebuilt Binaries
