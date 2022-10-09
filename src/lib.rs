@@ -14,7 +14,7 @@ metadata! {
     title: "App",
     handle:
         input: Payload,
-        output: String,
+        output: u8,
 }
 
 #[no_mangle]
@@ -28,7 +28,7 @@ extern "C" fn handle() {
     debug!("handle()");
     let payload: Payload = msg::load().expect("Unable to decode payload");
     if payload.question == "life-universe-everything" {
-        msg::reply(format!("{}", payload.answer), 0).unwrap();
+        msg::reply(payload.answer, 0).unwrap();
     }
 }
 
@@ -55,7 +55,7 @@ mod tests {
                 answer: 42,
             },
         );
-        let log = Log::builder().source(1).dest(12).payload("42".to_string());
+        let log = Log::builder().source(1).dest(12).payload(42_u8);
         assert!(res.contains(&log));
     }
 }
