@@ -26,7 +26,7 @@ extern "C" fn init() {
 #[no_mangle]
 extern "C" fn handle() {
     debug!("handle()");
-    let payload: Payload = msg::load().expect("Unable to decode payload"); //= String::from_utf8(msg::load_bytes()).expect("Invalid handle message");
+    let payload: Payload = msg::load().expect("Unable to decode payload");
     if payload.question == "life-universe-everything" {
         msg::reply(format!("{}", payload.answer), 0).unwrap();
     }
