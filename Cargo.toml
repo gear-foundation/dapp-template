@@ -6,10 +6,10 @@ license = "MIT"
 authors = ["Gear Technologies"]
 
 [dependencies]
-gstd = { git = "https://github.com/gear-tech/gear.git", features = ["debug"] }
+gstd = { git = "https://github.com/gear-tech/gear.git", tag = "v4-100" }
 
 [dev-dependencies]
-gtest = { git = "https://github.com/gear-tech/gear.git" }
+gtest = { git = "https://github.com/gear-tech/gear.git", tag = "v4-100" }
 
 [build-dependencies]
-gear-wasm-builder = { git = "https://github.com/gear-tech/gear.git" }
+gear-wasm-builder = { git = "https://github.com/gear-tech/gear.git", tag = "v4-100" }

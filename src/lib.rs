@@ -19,7 +19,8 @@ metadata! {
 
 #[no_mangle]
 extern "C" fn init() {
-    let payload = String::from_utf8(msg::load_bytes()).expect("Invalid init message");
+    let payload = String::from_utf8(msg::load_bytes().expect("Failed to load a message"))
+        .expect("Invalid init message");
     debug!("init(): {}", payload);
 }
 
