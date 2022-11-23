@@ -39,11 +39,11 @@ jobs:
       - name: Run linter
         run: make linter
 
-      - name: Build
-        run: make build
-
       - name: Run tests
         run: make test
+
+      - name: Build
+        run: make build
 
       - name: Upload artifacts
         if: github.event_name == 'push'
