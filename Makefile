@@ -26,10 +26,10 @@ lint:
 
 pre-commit: fmt lint test
 
-test: deps
+test:
 	@echo ⚙️ Running unit tests...
 	@cargo +nightly t
 
-full-test: deps
+full-test:
 	@echo ⚙️ Running all tests...
 	@cargo +nightly t -- --include-ignored
