@@ -5,9 +5,18 @@ use gstd::{debug, metadata, msg, prelude::*};
 #[derive(Decode, Encode, TypeInfo)]
 #[codec(crate = gstd::codec)]
 #[scale_info(crate = gstd::scale_info)]
-struct Payload {
+pub struct Payload {
     question: String,
     answer: u8,
+}
+
+impl Default for Payload {
+    fn default() -> Self {
+        Self {
+            question: "life-universe-everything".into(),
+            answer: 42,
+        }
+    }
 }
 
 metadata! {
@@ -36,7 +45,6 @@ extern "C" fn handle() {
 #[cfg(test)]
 mod tests {
     use super::Payload;
-    use gstd::ToString;
     use gtest::{Log, Program, System};
 
     #[test]
@@ -49,13 +57,7 @@ mod tests {
         let res = program.send_bytes(12, "Let's start");
         assert!(res.log().is_empty());
 
-        let res = program.send(
-            12,
-            Payload {
-                question: "life-universe-everything".to_string(),
-                answer: 42,
-            },
-        );
+        let res = program.send(12, Payload::default());
         let log = Log::builder().source(1).dest(12).payload(42_u8);
         assert!(res.contains(&log));
     }
