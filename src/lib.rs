@@ -21,6 +21,8 @@ impl Default for Payload {
 
 metadata! {
     title: "App",
+    init:
+        input: String,
     handle:
         input: Payload,
         output: u8,
