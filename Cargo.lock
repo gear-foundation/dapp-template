@@ -890,7 +890,7 @@ dependencies = [
 [[package]]
 name = "demo-proxy"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "gear-wasm-builder 0.1.2 (git+https://github.com/gear-tech/gear.git)",
  "gstd 0.1.0 (git+https://github.com/gear-tech/gear.git)",
@@ -1057,6 +1057,27 @@ dependencies = [
  "elliptic-curve",
  "rfc6979",
  "signature",
+]
+
+[[package]]
+name = "ed25519"
+version = "1.5.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1e9c280362032ea4203659fc489832d0204ef09f247a0506f170dafcac08c369"
+dependencies = [
+ "signature",
+]
+
+[[package]]
+name = "ed25519-dalek"
+version = "1.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c762bae6dcaf24c4c84667b8579785430908723d5c889f469d76a41d59cc7a9d"
+dependencies = [
+ "curve25519-dalek 3.2.0",
+ "ed25519",
+ "sha2 0.9.9",
+ "zeroize",
 ]
 
 [[package]]
@@ -1288,7 +1309,7 @@ checksum = "3f9eec918d3f24069decb9af1554cad7c880e2da24a9afd88aca000531ab82c1"
 [[package]]
 name = "frame-benchmarking"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -1299,29 +1320,29 @@ dependencies = [
  "scale-info",
  "serde",
  "sp-api",
- "sp-application-crypto 6.0.0",
- "sp-core 6.0.0",
- "sp-io 6.0.0",
- "sp-runtime 6.0.0",
- "sp-runtime-interface 6.0.0",
- "sp-std 4.0.0",
- "sp-storage 6.0.0",
+ "sp-application-crypto 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime-interface 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-storage 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "frame-executive"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "frame-support",
  "frame-system",
  "parity-scale-codec",
  "scale-info",
- "sp-core 6.0.0",
- "sp-io 6.0.0",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
- "sp-tracing 5.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-tracing 6.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
@@ -1339,7 +1360,7 @@ dependencies = [
 [[package]]
 name = "frame-support"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "bitflags",
  "frame-metadata",
@@ -1354,24 +1375,24 @@ dependencies = [
  "serde",
  "smallvec",
  "sp-api",
- "sp-arithmetic 5.0.0",
- "sp-core 6.0.0",
+ "sp-arithmetic 6.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-core-hashing-proc-macro",
  "sp-inherents",
- "sp-io 6.0.0",
- "sp-runtime 6.0.0",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-staking",
- "sp-state-machine 0.12.0",
- "sp-std 4.0.0",
- "sp-tracing 5.0.0",
- "sp-weights 4.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33)",
+ "sp-state-machine 0.13.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-tracing 6.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-weights 4.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "tt-call",
 ]
 
 [[package]]
 name = "frame-support-procedural"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "Inflector",
  "cfg-expr",
@@ -1385,7 +1406,7 @@ dependencies = [
 [[package]]
 name = "frame-support-procedural-tools"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "frame-support-procedural-tools-derive",
  "proc-macro-crate 1.2.1",
@@ -1397,7 +1418,7 @@ dependencies = [
 [[package]]
 name = "frame-support-procedural-tools-derive"
 version = "3.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1407,40 +1428,40 @@ dependencies = [
 [[package]]
 name = "frame-system"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "frame-support",
  "log",
  "parity-scale-codec",
  "scale-info",
  "serde",
- "sp-core 6.0.0",
- "sp-io 6.0.0",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-version",
- "sp-weights 4.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33)",
+ "sp-weights 4.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "frame-system-benchmarking"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
  "frame-system",
  "parity-scale-codec",
  "scale-info",
- "sp-core 6.0.0",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "frame-system-rpc-runtime-api"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "parity-scale-codec",
  "sp-api",
@@ -1449,13 +1470,13 @@ dependencies = [
 [[package]]
 name = "frame-try-runtime"
 version = "0.10.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "frame-support",
  "parity-scale-codec",
  "sp-api",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
@@ -1595,7 +1616,7 @@ dependencies = [
 [[package]]
 name = "galloc"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "dlmalloc",
 ]
@@ -1603,7 +1624,7 @@ dependencies = [
 [[package]]
 name = "gclient"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -1632,7 +1653,7 @@ dependencies = [
 [[package]]
 name = "gcore"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "gear-core-errors 0.1.0 (git+https://github.com/gear-tech/gear.git)",
  "gsys 0.1.0 (git+https://github.com/gear-tech/gear.git)",
@@ -1656,7 +1677,7 @@ dependencies = [
 [[package]]
 name = "gear-backend-common"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "derive_more",
  "gear-core 0.1.0 (git+https://github.com/gear-tech/gear.git)",
@@ -1670,7 +1691,7 @@ dependencies = [
 [[package]]
 name = "gear-backend-sandbox"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "blake2-rfc",
  "derive_more",
@@ -1704,7 +1725,7 @@ dependencies = [
 [[package]]
 name = "gear-backend-wasmi"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "blake2-rfc",
  "derive_more",
@@ -1721,7 +1742,7 @@ dependencies = [
 [[package]]
 name = "gear-common"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "derive_more",
  "frame-support",
@@ -1732,17 +1753,17 @@ dependencies = [
  "parity-scale-codec",
  "primitive-types",
  "scale-info",
- "sp-arithmetic 5.0.0",
- "sp-core 6.0.0",
- "sp-io 6.0.0",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-arithmetic 6.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "gear-common-codegen"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "quote",
  "syn",
@@ -1768,7 +1789,7 @@ dependencies = [
 [[package]]
 name = "gear-core"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "blake2-rfc",
  "derive_more",
@@ -1795,7 +1816,7 @@ dependencies = [
 [[package]]
 name = "gear-core-errors"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "derive_more",
  "parity-scale-codec",
@@ -1819,7 +1840,7 @@ dependencies = [
 [[package]]
 name = "gear-core-processor"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "derive_more",
  "gear-backend-common 0.1.0 (git+https://github.com/gear-tech/gear.git)",
@@ -1835,7 +1856,7 @@ dependencies = [
 [[package]]
 name = "gear-lazy-pages"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "cfg-if",
  "derive_more",
@@ -1848,9 +1869,9 @@ dependencies = [
  "once_cell",
  "region",
  "sc-executor-common",
- "sp-io 6.0.0",
- "sp-std 4.0.0",
- "sp-wasm-interface 6.0.0",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-wasm-interface 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "static_assertions",
  "winapi",
 ]
@@ -1858,20 +1879,20 @@ dependencies = [
 [[package]]
 name = "gear-lazy-pages-common"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "derive_more",
  "gear-common",
  "gear-core 0.1.0 (git+https://github.com/gear-tech/gear.git)",
  "gear-runtime-interface",
  "log",
- "sp-std 4.0.0",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "gear-program"
 version = "0.1.5"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "anyhow",
  "base64 0.20.0",
@@ -1907,7 +1928,7 @@ dependencies = [
 [[package]]
 name = "gear-runtime"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "frame-benchmarking",
  "frame-executive",
@@ -1943,12 +1964,13 @@ dependencies = [
  "sp-api",
  "sp-block-builder",
  "sp-consensus-babe",
- "sp-core 6.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-inherents",
  "sp-offchain",
- "sp-runtime 6.0.0",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-sandbox",
  "sp-session",
- "sp-std 4.0.0",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-transaction-pool",
  "sp-version",
  "substrate-wasm-builder",
@@ -1957,7 +1979,7 @@ dependencies = [
 [[package]]
 name = "gear-runtime-common"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -1966,14 +1988,14 @@ dependencies = [
  "gear-runtime-primitives",
  "pallet-authorship",
  "pallet-balances",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "gear-runtime-interface"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "derive_more",
  "gear-core 0.1.0 (git+https://github.com/gear-tech/gear.git)",
@@ -1982,8 +2004,8 @@ dependencies = [
  "log",
  "parity-scale-codec",
  "region",
- "sp-runtime-interface 6.0.0",
- "sp-std 4.0.0",
+ "sp-runtime-interface 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "static_assertions",
  "winapi",
 ]
@@ -1991,10 +2013,10 @@ dependencies = [
 [[package]]
 name = "gear-runtime-primitives"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
- "sp-core 6.0.0",
- "sp-runtime 6.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
@@ -2016,7 +2038,7 @@ dependencies = [
 [[package]]
 name = "gear-wasm-builder"
 version = "0.1.2"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "anyhow",
  "cargo_metadata 0.15.2",
@@ -2041,7 +2063,7 @@ dependencies = [
 [[package]]
 name = "gear-wasm-instrument"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "enum-iterator",
  "wasm-instrument 0.2.1",
@@ -2118,7 +2140,7 @@ checksum = "8be18de09a56b60ed0edf84bc9df007e30040691af7acd1c41874faac5895bfb"
 [[package]]
 name = "gmeta"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "blake2-rfc",
  "hex",
@@ -2158,7 +2180,7 @@ dependencies = [
 [[package]]
 name = "gstd"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "bs58",
  "futures",
@@ -2186,7 +2208,7 @@ dependencies = [
 [[package]]
 name = "gstd-codegen"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2201,7 +2223,7 @@ source = "git+https://github.com/gear-tech/gear.git?branch=stable#b839f4d8d46930
 [[package]]
 name = "gsys"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 
 [[package]]
 name = "gtest"
@@ -2950,6 +2972,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "memory-db"
+version = "0.31.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5e0c7cba9ce19ac7ffd2053ac9f49843bbd3f4318feedfd74e85c19d5fb0ba66"
+dependencies = [
+ "hash-db",
+ "hashbrown",
+]
+
+[[package]]
 name = "memory_units"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3227,7 +3259,7 @@ dependencies = [
 [[package]]
 name = "pallet-authorship"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -3235,14 +3267,14 @@ dependencies = [
  "parity-scale-codec",
  "scale-info",
  "sp-authorship",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "pallet-babe"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3253,20 +3285,20 @@ dependencies = [
  "pallet-timestamp",
  "parity-scale-codec",
  "scale-info",
- "sp-application-crypto 6.0.0",
+ "sp-application-crypto 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-consensus-babe",
  "sp-consensus-vrf",
- "sp-io 6.0.0",
- "sp-runtime 6.0.0",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-session",
  "sp-staking",
- "sp-std 4.0.0",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "pallet-balances"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3274,14 +3306,14 @@ dependencies = [
  "log",
  "parity-scale-codec",
  "scale-info",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "pallet-gear"
 version = "2.0.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "demo-proxy",
  "derive_more",
@@ -3310,18 +3342,18 @@ dependencies = [
  "scopeguard",
  "serde",
  "sp-consensus-babe",
- "sp-core 6.0.0",
- "sp-externalities 0.12.0",
- "sp-io 6.0.0",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-externalities 0.13.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "test-syscalls",
 ]
 
 [[package]]
 name = "pallet-gear-debug"
 version = "2.0.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3335,16 +3367,16 @@ dependencies = [
  "parity-scale-codec",
  "primitive-types",
  "scale-info",
- "sp-core 6.0.0",
- "sp-io 6.0.0",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "pallet-gear-gas"
 version = "2.0.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3356,14 +3388,14 @@ dependencies = [
  "parity-scale-codec",
  "primitive-types",
  "scale-info",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "pallet-gear-messenger"
 version = "1.0.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -3373,14 +3405,14 @@ dependencies = [
  "parity-scale-codec",
  "primitive-types",
  "scale-info",
- "sp-io 6.0.0",
- "sp-std 4.0.0",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "pallet-gear-payment"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3393,14 +3425,14 @@ dependencies = [
  "parity-scale-codec",
  "primitive-types",
  "scale-info",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "pallet-gear-proc-macro"
 version = "2.0.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -3410,7 +3442,7 @@ dependencies = [
 [[package]]
 name = "pallet-gear-program"
 version = "2.0.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3422,28 +3454,28 @@ dependencies = [
  "parity-scale-codec",
  "primitive-types",
  "scale-info",
- "sp-core 6.0.0",
- "sp-io 6.0.0",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "pallet-gear-rpc-runtime-api"
 version = "2.0.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "pallet-gear",
  "sp-api",
- "sp-core 6.0.0",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "pallet-gear-scheduler"
 version = "1.0.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3454,14 +3486,14 @@ dependencies = [
  "parity-scale-codec",
  "primitive-types",
  "scale-info",
- "sp-io 6.0.0",
- "sp-std 4.0.0",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "pallet-grandpa"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3471,20 +3503,20 @@ dependencies = [
  "pallet-session",
  "parity-scale-codec",
  "scale-info",
- "sp-application-crypto 6.0.0",
- "sp-core 6.0.0",
+ "sp-application-crypto 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-finality-grandpa",
- "sp-io 6.0.0",
- "sp-runtime 6.0.0",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-session",
  "sp-staking",
- "sp-std 4.0.0",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "pallet-session"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -3493,33 +3525,33 @@ dependencies = [
  "pallet-timestamp",
  "parity-scale-codec",
  "scale-info",
- "sp-core 6.0.0",
- "sp-io 6.0.0",
- "sp-runtime 6.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-session",
  "sp-staking",
- "sp-std 4.0.0",
- "sp-trie 6.0.0",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-trie 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "pallet-sudo"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "frame-support",
  "frame-system",
  "parity-scale-codec",
  "scale-info",
- "sp-io 6.0.0",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "pallet-timestamp"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -3528,54 +3560,54 @@ dependencies = [
  "parity-scale-codec",
  "scale-info",
  "sp-inherents",
- "sp-io 6.0.0",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-timestamp",
 ]
 
 [[package]]
 name = "pallet-transaction-payment"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "frame-support",
  "frame-system",
  "parity-scale-codec",
  "scale-info",
  "serde",
- "sp-core 6.0.0",
- "sp-io 6.0.0",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "pallet-transaction-payment-rpc-runtime-api"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "pallet-transaction-payment",
  "parity-scale-codec",
  "sp-api",
- "sp-runtime 6.0.0",
- "sp-weights 4.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-weights 4.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "pallet-utility"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
  "frame-system",
  "parity-scale-codec",
  "scale-info",
- "sp-core 6.0.0",
- "sp-io 6.0.0",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
@@ -4227,18 +4259,18 @@ dependencies = [
 [[package]]
 name = "sc-allocator"
 version = "4.1.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "log",
- "sp-core 6.0.0",
- "sp-wasm-interface 6.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-wasm-interface 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "thiserror",
 ]
 
 [[package]]
 name = "sc-executor-common"
 version = "0.10.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "environmental",
  "log",
@@ -4246,7 +4278,7 @@ dependencies = [
  "sc-allocator",
  "sp-maybe-compressed-blob",
  "sp-sandbox",
- "sp-wasm-interface 6.0.0",
+ "sp-wasm-interface 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "thiserror",
  "wasm-instrument 0.3.0",
  "wasmi 0.13.2",
@@ -4484,18 +4516,18 @@ checksum = "388a1df253eca08550bef6c72392cfe7c30914bf41df5269b68cbd6ff8f570a3"
 
 [[package]]
 name = "serde"
-version = "1.0.151"
+version = "1.0.152"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "97fed41fc1a24994d044e6db6935e69511a1153b52c15eb42493b26fa87feba0"
+checksum = "bb7d1f0d3021d347a83e556fc4683dea2ea09d87bccdf88ff5c12545d89d5efb"
 dependencies = [
  "serde_derive",
 ]
 
 [[package]]
 name = "serde_derive"
-version = "1.0.151"
+version = "1.0.152"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "255abe9a125a985c05190d687b320c12f9b1f0b99445e608c21ba0782c719ad8"
+checksum = "af487d118eecd09402d70a5d72551860e788df87b464af30e5ea6a38c75c541e"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -4672,17 +4704,17 @@ dependencies = [
 [[package]]
 name = "sp-api"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "hash-db",
  "log",
  "parity-scale-codec",
  "sp-api-proc-macro",
- "sp-core 6.0.0",
- "sp-runtime 6.0.0",
- "sp-state-machine 0.12.0",
- "sp-std 4.0.0",
- "sp-trie 6.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-state-machine 0.13.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-trie 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-version",
  "thiserror",
 ]
@@ -4690,26 +4722,13 @@ dependencies = [
 [[package]]
 name = "sp-api-proc-macro"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "blake2",
  "proc-macro-crate 1.2.1",
  "proc-macro2",
  "quote",
  "syn",
-]
-
-[[package]]
-name = "sp-application-crypto"
-version = "6.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
-dependencies = [
- "parity-scale-codec",
- "scale-info",
- "serde",
- "sp-core 6.0.0",
- "sp-io 6.0.0",
- "sp-std 4.0.0",
 ]
 
 [[package]]
@@ -4721,24 +4740,22 @@ dependencies = [
  "parity-scale-codec",
  "scale-info",
  "serde",
- "sp-core 7.0.0",
- "sp-io 7.0.0",
- "sp-std 5.0.0",
+ "sp-core 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-io 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-std 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
-name = "sp-arithmetic"
-version = "5.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+name = "sp-application-crypto"
+version = "7.0.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
- "integer-sqrt",
- "num-traits",
  "parity-scale-codec",
  "scale-info",
  "serde",
- "sp-debug-derive 4.0.0",
- "sp-std 4.0.0",
- "static_assertions",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
@@ -4752,50 +4769,65 @@ dependencies = [
  "parity-scale-codec",
  "scale-info",
  "serde",
- "sp-debug-derive 5.0.0",
- "sp-std 5.0.0",
+ "sp-debug-derive 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-std 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "static_assertions",
+]
+
+[[package]]
+name = "sp-arithmetic"
+version = "6.0.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
+dependencies = [
+ "integer-sqrt",
+ "num-traits",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-debug-derive 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "static_assertions",
 ]
 
 [[package]]
 name = "sp-authorship"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "async-trait",
  "parity-scale-codec",
  "sp-inherents",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "sp-block-builder"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "parity-scale-codec",
  "sp-api",
  "sp-inherents",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "sp-consensus"
 version = "0.10.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "async-trait",
  "futures",
  "futures-timer",
  "log",
  "parity-scale-codec",
- "sp-core 6.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-inherents",
- "sp-runtime 6.0.0",
- "sp-state-machine 0.12.0",
- "sp-std 4.0.0",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-state-machine 0.13.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-version",
  "thiserror",
 ]
@@ -4803,7 +4835,7 @@ dependencies = [
 [[package]]
 name = "sp-consensus-babe"
 version = "0.10.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "async-trait",
  "merlin",
@@ -4811,88 +4843,43 @@ dependencies = [
  "scale-info",
  "serde",
  "sp-api",
- "sp-application-crypto 6.0.0",
+ "sp-application-crypto 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-consensus",
  "sp-consensus-slots",
  "sp-consensus-vrf",
- "sp-core 6.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-inherents",
- "sp-keystore 0.12.0",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-keystore 0.13.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-timestamp",
 ]
 
 [[package]]
 name = "sp-consensus-slots"
 version = "0.10.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
  "serde",
- "sp-arithmetic 5.0.0",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-arithmetic 6.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-timestamp",
 ]
 
 [[package]]
 name = "sp-consensus-vrf"
 version = "0.10.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
  "schnorrkel",
- "sp-core 6.0.0",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
-]
-
-[[package]]
-name = "sp-core"
-version = "6.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
-dependencies = [
- "array-bytes",
- "base58",
- "bitflags",
- "blake2",
- "byteorder",
- "dyn-clonable",
- "ed25519-zebra",
- "futures",
- "hash-db",
- "hash256-std-hasher",
- "impl-serde",
- "lazy_static",
- "libsecp256k1",
- "log",
- "merlin",
- "num-traits",
- "parity-scale-codec",
- "parking_lot",
- "primitive-types",
- "rand 0.7.3",
- "regex",
- "scale-info",
- "schnorrkel",
- "secp256k1",
- "secrecy",
- "serde",
- "sp-core-hashing 4.0.0",
- "sp-debug-derive 4.0.0",
- "sp-externalities 0.12.0",
- "sp-runtime-interface 6.0.0",
- "sp-std 4.0.0",
- "sp-storage 6.0.0",
- "ss58-registry",
- "substrate-bip39",
- "thiserror",
- "tiny-bip39",
- "wasmi 0.13.2",
- "zeroize",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
@@ -4927,12 +4914,12 @@ dependencies = [
  "secp256k1",
  "secrecy",
  "serde",
- "sp-core-hashing 5.0.0",
- "sp-debug-derive 5.0.0",
- "sp-externalities 0.13.0",
- "sp-runtime-interface 7.0.0",
- "sp-std 5.0.0",
- "sp-storage 7.0.0",
+ "sp-core-hashing 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-debug-derive 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-externalities 0.13.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-runtime-interface 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-std 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-storage 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "ss58-registry",
  "substrate-bip39",
  "thiserror",
@@ -4942,17 +4929,48 @@ dependencies = [
 ]
 
 [[package]]
-name = "sp-core-hashing"
-version = "4.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+name = "sp-core"
+version = "7.0.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
+ "array-bytes",
+ "base58",
+ "bitflags",
  "blake2",
  "byteorder",
- "digest 0.10.6",
- "sha2 0.10.6",
- "sha3",
- "sp-std 4.0.0",
- "twox-hash",
+ "dyn-clonable",
+ "ed25519-zebra",
+ "futures",
+ "hash-db",
+ "hash256-std-hasher",
+ "impl-serde",
+ "lazy_static",
+ "libsecp256k1",
+ "log",
+ "merlin",
+ "num-traits",
+ "parity-scale-codec",
+ "parking_lot",
+ "primitive-types",
+ "rand 0.7.3",
+ "regex",
+ "scale-info",
+ "schnorrkel",
+ "secp256k1",
+ "secrecy",
+ "serde",
+ "sp-core-hashing 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-debug-derive 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-externalities 0.13.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime-interface 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-storage 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "ss58-registry",
+ "substrate-bip39",
+ "thiserror",
+ "tiny-bip39",
+ "wasmi 0.13.2",
+ "zeroize",
 ]
 
 [[package]]
@@ -4966,28 +4984,32 @@ dependencies = [
  "digest 0.10.6",
  "sha2 0.10.6",
  "sha3",
- "sp-std 5.0.0",
+ "sp-std 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "twox-hash",
+]
+
+[[package]]
+name = "sp-core-hashing"
+version = "5.0.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
+dependencies = [
+ "blake2",
+ "byteorder",
+ "digest 0.10.6",
+ "sha2 0.10.6",
+ "sha3",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "twox-hash",
 ]
 
 [[package]]
 name = "sp-core-hashing-proc-macro"
 version = "5.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "proc-macro2",
  "quote",
- "sp-core-hashing 4.0.0",
- "syn",
-]
-
-[[package]]
-name = "sp-debug-derive"
-version = "4.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
-dependencies = [
- "proc-macro2",
- "quote",
+ "sp-core-hashing 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "syn",
 ]
 
@@ -5003,14 +5025,13 @@ dependencies = [
 ]
 
 [[package]]
-name = "sp-externalities"
-version = "0.12.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+name = "sp-debug-derive"
+version = "5.0.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
- "environmental",
- "parity-scale-codec",
- "sp-std 4.0.0",
- "sp-storage 6.0.0",
+ "proc-macro2",
+ "quote",
+ "syn",
 ]
 
 [[package]]
@@ -5021,14 +5042,25 @@ checksum = "ef739442230f49d88ece41259e5d886d6b8bc0f4197ef7f1585c39c762ce7ef2"
 dependencies = [
  "environmental",
  "parity-scale-codec",
- "sp-std 5.0.0",
- "sp-storage 7.0.0",
+ "sp-std 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-storage 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "sp-externalities"
+version = "0.13.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
+dependencies = [
+ "environmental",
+ "parity-scale-codec",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-storage 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "sp-finality-grandpa"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "finality-grandpa",
  "log",
@@ -5036,51 +5068,25 @@ dependencies = [
  "scale-info",
  "serde",
  "sp-api",
- "sp-application-crypto 6.0.0",
- "sp-core 6.0.0",
- "sp-keystore 0.12.0",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-application-crypto 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-keystore 0.13.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "sp-inherents"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "async-trait",
  "impl-trait-for-tuples",
  "parity-scale-codec",
- "sp-core 6.0.0",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "thiserror",
-]
-
-[[package]]
-name = "sp-io"
-version = "6.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
-dependencies = [
- "bytes",
- "futures",
- "hash-db",
- "libsecp256k1",
- "log",
- "parity-scale-codec",
- "parking_lot",
- "secp256k1",
- "sp-core 6.0.0",
- "sp-externalities 0.12.0",
- "sp-keystore 0.12.0",
- "sp-runtime-interface 6.0.0",
- "sp-state-machine 0.12.0",
- "sp-std 4.0.0",
- "sp-tracing 5.0.0",
- "sp-trie 6.0.0",
- "sp-wasm-interface 6.0.0",
- "tracing",
- "tracing-core",
 ]
 
 [[package]]
@@ -5097,33 +5103,44 @@ dependencies = [
  "parity-scale-codec",
  "parking_lot",
  "secp256k1",
- "sp-core 7.0.0",
- "sp-externalities 0.13.0",
- "sp-keystore 0.13.0",
- "sp-runtime-interface 7.0.0",
- "sp-state-machine 0.13.0",
- "sp-std 5.0.0",
- "sp-tracing 6.0.0",
- "sp-trie 7.0.0",
- "sp-wasm-interface 7.0.0",
+ "sp-core 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-externalities 0.13.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-keystore 0.13.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-runtime-interface 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-state-machine 0.13.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-std 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-tracing 6.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-trie 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-wasm-interface 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "tracing",
  "tracing-core",
 ]
 
 [[package]]
-name = "sp-keystore"
-version = "0.12.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+name = "sp-io"
+version = "7.0.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
- "async-trait",
+ "bytes",
+ "ed25519-dalek",
  "futures",
- "merlin",
+ "hash-db",
+ "libsecp256k1",
+ "log",
  "parity-scale-codec",
  "parking_lot",
- "schnorrkel",
- "sp-core 6.0.0",
- "sp-externalities 0.12.0",
- "thiserror",
+ "secp256k1",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-externalities 0.13.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-keystore 0.13.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime-interface 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-state-machine 0.13.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-tracing 6.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-trie 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-wasm-interface 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "tracing",
+ "tracing-core",
 ]
 
 [[package]]
@@ -5138,15 +5155,31 @@ dependencies = [
  "parity-scale-codec",
  "parking_lot",
  "schnorrkel",
- "sp-core 7.0.0",
- "sp-externalities 0.13.0",
+ "sp-core 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-externalities 0.13.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "thiserror",
+]
+
+[[package]]
+name = "sp-keystore"
+version = "0.13.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
+dependencies = [
+ "async-trait",
+ "futures",
+ "merlin",
+ "parity-scale-codec",
+ "parking_lot",
+ "schnorrkel",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-externalities 0.13.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "thiserror",
 ]
 
 [[package]]
 name = "sp-maybe-compressed-blob"
 version = "4.1.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "thiserror",
  "zstd",
@@ -5155,21 +5188,11 @@ dependencies = [
 [[package]]
 name = "sp-offchain"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "sp-api",
- "sp-core 6.0.0",
- "sp-runtime 6.0.0",
-]
-
-[[package]]
-name = "sp-panic-handler"
-version = "4.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
-dependencies = [
- "backtrace",
- "lazy_static",
- "regex",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
@@ -5184,26 +5207,13 @@ dependencies = [
 ]
 
 [[package]]
-name = "sp-runtime"
-version = "6.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+name = "sp-panic-handler"
+version = "5.0.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
- "either",
- "hash256-std-hasher",
- "impl-trait-for-tuples",
- "log",
- "parity-scale-codec",
- "parity-util-mem",
- "paste",
- "rand 0.7.3",
- "scale-info",
- "serde",
- "sp-application-crypto 6.0.0",
- "sp-arithmetic 5.0.0",
- "sp-core 6.0.0",
- "sp-io 6.0.0",
- "sp-std 4.0.0",
- "sp-weights 4.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33)",
+ "backtrace",
+ "lazy_static",
+ "regex",
 ]
 
 [[package]]
@@ -5222,30 +5232,34 @@ dependencies = [
  "rand 0.7.3",
  "scale-info",
  "serde",
- "sp-application-crypto 7.0.0",
- "sp-arithmetic 6.0.0",
- "sp-core 7.0.0",
- "sp-io 7.0.0",
- "sp-std 5.0.0",
+ "sp-application-crypto 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-arithmetic 6.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-core 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-io 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-std 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "sp-weights 4.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
-name = "sp-runtime-interface"
-version = "6.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+name = "sp-runtime"
+version = "7.0.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
- "bytes",
+ "either",
+ "hash256-std-hasher",
  "impl-trait-for-tuples",
+ "log",
  "parity-scale-codec",
- "primitive-types",
- "sp-externalities 0.12.0",
- "sp-runtime-interface-proc-macro 5.0.0",
- "sp-std 4.0.0",
- "sp-storage 6.0.0",
- "sp-tracing 5.0.0",
- "sp-wasm-interface 6.0.0",
- "static_assertions",
+ "paste",
+ "rand 0.7.3",
+ "scale-info",
+ "serde",
+ "sp-application-crypto 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-arithmetic 6.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-weights 4.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
@@ -5258,25 +5272,31 @@ dependencies = [
  "impl-trait-for-tuples",
  "parity-scale-codec",
  "primitive-types",
- "sp-externalities 0.13.0",
- "sp-runtime-interface-proc-macro 6.0.0",
- "sp-std 5.0.0",
- "sp-storage 7.0.0",
- "sp-tracing 6.0.0",
- "sp-wasm-interface 7.0.0",
+ "sp-externalities 0.13.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-runtime-interface-proc-macro 6.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-std 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-storage 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-tracing 6.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-wasm-interface 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "static_assertions",
 ]
 
 [[package]]
-name = "sp-runtime-interface-proc-macro"
-version = "5.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+name = "sp-runtime-interface"
+version = "7.0.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
- "Inflector",
- "proc-macro-crate 1.2.1",
- "proc-macro2",
- "quote",
- "syn",
+ "bytes",
+ "impl-trait-for-tuples",
+ "parity-scale-codec",
+ "primitive-types",
+ "sp-externalities 0.13.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime-interface-proc-macro 6.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-storage 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-tracing 6.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-wasm-interface 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "static_assertions",
 ]
 
 [[package]]
@@ -5293,64 +5313,55 @@ dependencies = [
 ]
 
 [[package]]
+name = "sp-runtime-interface-proc-macro"
+version = "6.0.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
+dependencies = [
+ "Inflector",
+ "proc-macro-crate 1.2.1",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "sp-sandbox"
 version = "0.10.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "log",
  "parity-scale-codec",
- "sp-core 6.0.0",
- "sp-io 6.0.0",
- "sp-std 4.0.0",
- "sp-wasm-interface 6.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-io 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-wasm-interface 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "wasmi 0.13.2",
 ]
 
 [[package]]
 name = "sp-session"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
  "sp-api",
- "sp-core 6.0.0",
- "sp-runtime 6.0.0",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-staking",
- "sp-std 4.0.0",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "sp-staking"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
-]
-
-[[package]]
-name = "sp-state-machine"
-version = "0.12.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
-dependencies = [
- "hash-db",
- "log",
- "num-traits",
- "parity-scale-codec",
- "parking_lot",
- "rand 0.7.3",
- "smallvec",
- "sp-core 6.0.0",
- "sp-externalities 0.12.0",
- "sp-panic-handler 4.0.0",
- "sp-std 4.0.0",
- "sp-trie 6.0.0",
- "thiserror",
- "tracing",
- "trie-root",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
@@ -5366,20 +5377,37 @@ dependencies = [
  "parking_lot",
  "rand 0.7.3",
  "smallvec",
- "sp-core 7.0.0",
- "sp-externalities 0.13.0",
- "sp-panic-handler 5.0.0",
- "sp-std 5.0.0",
- "sp-trie 7.0.0",
+ "sp-core 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-externalities 0.13.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-panic-handler 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-std 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-trie 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "thiserror",
  "tracing",
  "trie-root",
 ]
 
 [[package]]
-name = "sp-std"
-version = "4.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+name = "sp-state-machine"
+version = "0.13.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
+dependencies = [
+ "hash-db",
+ "log",
+ "num-traits",
+ "parity-scale-codec",
+ "parking_lot",
+ "rand 0.7.3",
+ "smallvec",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-externalities 0.13.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-panic-handler 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-trie 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "thiserror",
+ "tracing",
+ "trie-root",
+]
 
 [[package]]
 name = "sp-std"
@@ -5388,17 +5416,9 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cf3fd4c1d304be101e6ebbafd3d4be9a37b320c970ef4e8df188b16873981c93"
 
 [[package]]
-name = "sp-storage"
-version = "6.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
-dependencies = [
- "impl-serde",
- "parity-scale-codec",
- "ref-cast",
- "serde",
- "sp-debug-derive 4.0.0",
- "sp-std 4.0.0",
-]
+name = "sp-std"
+version = "5.0.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 
 [[package]]
 name = "sp-storage"
@@ -5410,14 +5430,27 @@ dependencies = [
  "parity-scale-codec",
  "ref-cast",
  "serde",
- "sp-debug-derive 5.0.0",
- "sp-std 5.0.0",
+ "sp-debug-derive 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-std 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "sp-storage"
+version = "7.0.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
+dependencies = [
+ "impl-serde",
+ "parity-scale-codec",
+ "ref-cast",
+ "serde",
+ "sp-debug-derive 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
 name = "sp-timestamp"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "async-trait",
  "futures-timer",
@@ -5425,21 +5458,9 @@ dependencies = [
  "parity-scale-codec",
  "sp-api",
  "sp-inherents",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "thiserror",
-]
-
-[[package]]
-name = "sp-tracing"
-version = "5.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
-dependencies = [
- "parity-scale-codec",
- "sp-std 4.0.0",
- "tracing",
- "tracing-core",
- "tracing-subscriber",
 ]
 
 [[package]]
@@ -5449,7 +5470,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e761df87dc940d87720939de8f976d1fc0657e523886ae0d7bf3f7e2e2f0abb6"
 dependencies = [
  "parity-scale-codec",
- "sp-std 5.0.0",
+ "sp-std 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "tracing",
+ "tracing-core",
+ "tracing-subscriber",
+]
+
+[[package]]
+name = "sp-tracing"
+version = "6.0.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
+dependencies = [
+ "parity-scale-codec",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "tracing",
  "tracing-core",
  "tracing-subscriber",
@@ -5458,33 +5491,10 @@ dependencies = [
 [[package]]
 name = "sp-transaction-pool"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "sp-api",
- "sp-runtime 6.0.0",
-]
-
-[[package]]
-name = "sp-trie"
-version = "6.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
-dependencies = [
- "ahash",
- "hash-db",
- "hashbrown",
- "lazy_static",
- "lru",
- "memory-db",
- "nohash-hasher",
- "parity-scale-codec",
- "parking_lot",
- "scale-info",
- "sp-core 6.0.0",
- "sp-std 4.0.0",
- "thiserror",
- "tracing",
- "trie-db",
- "trie-root",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
@@ -5498,13 +5508,36 @@ dependencies = [
  "hashbrown",
  "lazy_static",
  "lru",
- "memory-db",
+ "memory-db 0.30.0",
  "nohash-hasher",
  "parity-scale-codec",
  "parking_lot",
  "scale-info",
- "sp-core 7.0.0",
- "sp-std 5.0.0",
+ "sp-core 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-std 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "thiserror",
+ "tracing",
+ "trie-db",
+ "trie-root",
+]
+
+[[package]]
+name = "sp-trie"
+version = "7.0.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
+dependencies = [
+ "ahash",
+ "hash-db",
+ "hashbrown",
+ "lazy_static",
+ "lru",
+ "memory-db 0.31.0",
+ "nohash-hasher",
+ "parity-scale-codec",
+ "parking_lot",
+ "scale-info",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "thiserror",
  "tracing",
  "trie-db",
@@ -5514,7 +5547,7 @@ dependencies = [
 [[package]]
 name = "sp-version"
 version = "5.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "impl-serde",
  "parity-scale-codec",
@@ -5522,8 +5555,8 @@ dependencies = [
  "scale-info",
  "serde",
  "sp-core-hashing-proc-macro",
- "sp-runtime 6.0.0",
- "sp-std 4.0.0",
+ "sp-runtime 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
  "sp-version-proc-macro",
  "thiserror",
 ]
@@ -5531,24 +5564,12 @@ dependencies = [
 [[package]]
 name = "sp-version-proc-macro"
 version = "4.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "parity-scale-codec",
  "proc-macro2",
  "quote",
  "syn",
-]
-
-[[package]]
-name = "sp-wasm-interface"
-version = "6.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
-dependencies = [
- "impl-trait-for-tuples",
- "log",
- "parity-scale-codec",
- "sp-std 4.0.0",
- "wasmi 0.13.2",
 ]
 
 [[package]]
@@ -5560,8 +5581,21 @@ dependencies = [
  "impl-trait-for-tuples",
  "log",
  "parity-scale-codec",
- "sp-std 5.0.0",
+ "sp-std 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "wasmi 0.13.2",
+]
+
+[[package]]
+name = "sp-wasm-interface"
+version = "7.0.0"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
+dependencies = [
+ "impl-trait-for-tuples",
+ "log",
+ "parity-scale-codec",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "wasmi 0.13.2",
+ "wasmtime",
 ]
 
 [[package]]
@@ -5575,26 +5609,26 @@ dependencies = [
  "scale-info",
  "serde",
  "smallvec",
- "sp-arithmetic 6.0.0",
- "sp-core 7.0.0",
- "sp-debug-derive 5.0.0",
- "sp-std 5.0.0",
+ "sp-arithmetic 6.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-core 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-debug-derive 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-std 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "sp-weights"
 version = "4.0.0"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "impl-trait-for-tuples",
  "parity-scale-codec",
  "scale-info",
  "serde",
  "smallvec",
- "sp-arithmetic 5.0.0",
- "sp-core 6.0.0",
- "sp-debug-derive 4.0.0",
- "sp-std 4.0.0",
+ "sp-arithmetic 6.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-core 7.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-debug-derive 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
+ "sp-std 5.0.0 (git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36)",
 ]
 
 [[package]]
@@ -5709,7 +5743,7 @@ dependencies = [
 [[package]]
 name = "substrate-wasm-builder"
 version = "5.0.0-dev"
-source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.33#fac078bc74f6fc6858124c04a2d57a807ccc003e"
+source = "git+https://github.com/gear-tech/substrate.git?branch=gear-polkadot-v0.9.36#91c367ee60303f878fead054d95b600cea222156"
 dependencies = [
  "ansi_term",
  "build-helper",
@@ -5749,8 +5783,8 @@ dependencies = [
  "scale-value",
  "serde",
  "serde_json",
- "sp-core 7.0.0",
- "sp-runtime 7.0.0",
+ "sp-core 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-runtime 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "subxt-macro",
  "subxt-metadata",
  "thiserror",
@@ -5799,7 +5833,7 @@ dependencies = [
  "frame-metadata",
  "parity-scale-codec",
  "scale-info",
- "sp-core 7.0.0",
+ "sp-core 7.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -5863,7 +5897,7 @@ dependencies = [
 [[package]]
 name = "test-syscalls"
 version = "0.1.0"
-source = "git+https://github.com/gear-tech/gear.git#80d087190d9883fdffc322bc43119a80909baff2"
+source = "git+https://github.com/gear-tech/gear.git#67dbd702c9ed1d1fd6533feec2c8d308f30b6973"
 dependencies = [
  "gear-wasm-builder 0.1.2 (git+https://github.com/gear-tech/gear.git)",
  "gstd 0.1.0 (git+https://github.com/gear-tech/gear.git)",
