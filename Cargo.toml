@@ -22,7 +22,7 @@ tokio = "1"
 gclient = { git = "https://github.com/gear-tech/gear" }
 
 [features]
-binary-paths = []
+binary-vendor = []
 
 [workspace]
 members = ["state"]

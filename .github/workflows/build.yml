@@ -45,6 +45,7 @@ jobs:
       - name: Run tests
         run: |
           curl -OL https://github.com/gear-tech/gear/releases/download/build/gear
+          chmod +x gear
           ./gear --tmp --dev &> /dev/null & echo -n $! > gear.pid
           make full-test
           kill `cat gear.pid`

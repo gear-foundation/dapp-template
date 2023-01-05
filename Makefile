@@ -23,7 +23,7 @@ init:
 lint:
 	@echo ⚙️ Running the linter...
 	@cargo +nightly clippy -- -D warnings
-	@cargo +nightly clippy --all-targets -Fbinary-paths -- -D warnings
+	@cargo +nightly clippy --all-targets -Fbinary-vendor -- -D warnings
 
 pre-commit: fmt lint full-test
 
@@ -33,4 +33,4 @@ test:
 
 full-test:
 	@echo ⚙️ Running all tests...
-	@cargo +nightly t -Fbinary-paths -- --include-ignored
+	@cargo +nightly t -Fbinary-vendor -- --include-ignored
