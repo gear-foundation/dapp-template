@@ -6,10 +6,23 @@ license = "MIT"
 authors = ["Gear Technologies"]
 
 [dependencies]
-gstd = { git = "https://github.com/gear-tech/gear.git", branch = "stable" }
-
-[dev-dependencies]
-gtest = { git = "https://github.com/gear-tech/gear.git", branch = "stable" }
+app-io = { path = "io" }
+gstd = { git = "https://github.com/gear-tech/gear" }
+gmeta = { git = "https://github.com/gear-tech/gear" }
+hashbrown = "0.13"
 
 [build-dependencies]
-gear-wasm-builder = { git = "https://github.com/gear-tech/gear.git", branch = "stable" }
+app-io = { path = "io" }
+gear-wasm-builder = { git = "https://github.com/gear-tech/gear" }
+
+[dev-dependencies]
+gtest = { git = "https://github.com/gear-tech/gear" }
+gstd = { git = "https://github.com/gear-tech/gear", features = ["debug"] }
+tokio = "1"
+gclient = { git = "https://github.com/gear-tech/gear" }
+
+[features]
+binary-paths = []
+
+[workspace]
+members = ["state"]
