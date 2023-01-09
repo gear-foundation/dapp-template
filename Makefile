@@ -23,7 +23,11 @@ init:
 lint:
 	@echo ⚙️ Running the linter...
 	@cargo +nightly clippy -- -D warnings
-	@cargo +nightly clippy --all-targets -Fbinary-vendor -- -D warnings
+	@cargo +nightly clippy \
+	--all-targets \
+	--workspace \
+	-Fbinary-vendor \
+	-- -D warnings
 
 pre-commit: fmt lint full-test
 
