@@ -12,7 +12,7 @@ async fn gclient_test() {
     let mut listener = client.subscribe().await.unwrap();
 
     let mut gas_limit = client
-        .calculate_upload_gas(None, WASM_BINARY_OPT.into(), vec![], 0, true, None)
+        .calculate_upload_gas(None, WASM_BINARY_OPT.into(), vec![], 0, true)
         .await
         .unwrap()
         .min_limit;
@@ -28,7 +28,7 @@ async fn gclient_test() {
         .succeed());
 
     gas_limit = client
-        .calculate_handle_gas(None, program_id, PingPong::Ping.encode(), 0, true, None)
+        .calculate_handle_gas(None, program_id, PingPong::Ping.encode(), 0, true)
         .await
         .unwrap()
         .min_limit;

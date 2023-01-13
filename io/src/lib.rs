@@ -17,7 +17,24 @@ impl Metadata for AppMetadata {
     type Others = ();
     type Reply = ();
     type Signal = ();
-    type State = Vec<(ActorId, u128)>;
+    type State = AppState;
+}
+
+#[derive(Encode, Decode, TypeInfo, Hash, PartialEq, PartialOrd, Eq, Ord, Clone, Debug, Default)]
+pub struct AppState(pub Vec<(ActorId, u128)>);
+
+#[doc(hidden)]
+impl AppState {
+    pub fn pingers(self) -> Vec<ActorId> {
+        self.0.into_iter().map(|pingers| pingers.0).collect()
+    }
+
+    pub fn ping_count(self, actor: ActorId) -> u128 {
+        self.0
+            .into_iter()
+            .find_map(|(pinger, ping_count)| (pinger == actor).then_some(ping_count))
+            .unwrap_or_default()
+    }
 }
 
 #[derive(Encode, Decode, TypeInfo, Hash, PartialEq, PartialOrd, Eq, Ord, Clone, Copy, Debug)]
@@ -32,15 +49,4 @@ pub enum AppStateQueryReply {
     AllState(<AppMetadata as Metadata>::State),
     Pingers(Vec<ActorId>),
     PingCount(u128),
-}
-
-pub fn pingers(state: <AppMetadata as Metadata>::State) -> Vec<ActorId> {
-    state.into_iter().map(|pingers| pingers.0).collect()
-}
-
-pub fn ping_count(state: <AppMetadata as Metadata>::State, actor: ActorId) -> u128 {
-    state
-        .iter()
-        .find_map(|(pinger, ping_count)| (*pinger == actor).then_some(*ping_count))
-        .unwrap_or_default()
 }

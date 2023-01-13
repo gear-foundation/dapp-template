@@ -40,9 +40,9 @@ fn test() {
     };
 
     expected_state.sort();
-    state.sort();
+    state.0.sort();
 
-    assert_eq!(state, expected_state);
+    assert_eq!(state.0, expected_state);
 
     // AppStateQueryReply::PingCount
 

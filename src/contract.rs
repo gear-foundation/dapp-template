@@ -11,7 +11,15 @@ use hashbrown::HashMap;
 static mut STATE: Option<HashMap<ActorId, u128>> = None;
 
 fn static_mut_state() -> &'static mut HashMap<ActorId, u128> {
-    unsafe { STATE.get_or_insert(Default::default()) }
+    match unsafe { &mut STATE } {
+        Some(state) => state,
+        None => unreachable!("State can't be uninitialized"),
+    }
+}
+
+#[no_mangle]
+extern "C" fn init() {
+    unsafe { STATE = Some(HashMap::new()) }
 }
 
 #[no_mangle]
@@ -38,23 +46,23 @@ fn process_handle() -> Result<(), ContractError> {
 }
 
 fn common_state() -> <AppMetadata as Metadata>::State {
-    static_mut_state()
-        .iter()
-        .map(|(pinger, ping_count)| (*pinger, *ping_count))
-        .collect()
+    AppState(
+        static_mut_state()
+            .iter()
+            .map(|(pinger, ping_count)| (*pinger, *ping_count))
+            .collect(),
+    )
 }
 
 #[no_mangle]
 extern "C" fn meta_state() -> *const [i32; 2] {
-    let query = msg::load().expect("Failed to load or decode `AppStateQuery`");
+    let query = msg::load().expect("Failed to load or decode `AppStateQuery` from `meta_state()`");
     let state = common_state();
 
     let reply = match query {
         AppStateQuery::AllState => AppStateQueryReply::AllState(state),
-        AppStateQuery::Pingers => AppStateQueryReply::Pingers(app_io::pingers(state)),
-        AppStateQuery::PingCount(actor) => {
-            AppStateQueryReply::PingCount(app_io::ping_count(state, actor))
-        }
+        AppStateQuery::Pingers => AppStateQueryReply::Pingers(state.pingers()),
+        AppStateQuery::PingCount(actor) => AppStateQueryReply::PingCount(state.ping_count(actor)),
     };
 
     util::to_leak_ptr(reply.encode())

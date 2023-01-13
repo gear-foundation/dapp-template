@@ -9,10 +9,10 @@ pub trait Metawasm {
     type State = <AppMetadata as Metadata>::State;
 
     fn pingers(state: Self::State) -> Vec<ActorId> {
-        app_io::pingers(state)
+        state.pingers()
     }
 
     fn ping_count(actor: ActorId, state: Self::State) -> u128 {
-        app_io::ping_count(state, actor)
+        state.ping_count(actor)
     }
 }

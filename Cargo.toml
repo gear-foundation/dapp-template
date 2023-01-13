@@ -7,17 +7,19 @@ authors = ["Gear Technologies"]
 
 [dependencies]
 app-io = { path = "io" }
-gstd = { git = "https://github.com/gear-tech/gear.git" }
+gstd = { git = "https://github.com/gear-tech/gear.git", branch = "stable" }
+# TODO: pin to the "stable" branch before the merge.
 gmeta = { git = "https://github.com/gear-tech/gear.git" }
 hashbrown = "0.13"
 
 [build-dependencies]
 app-io = { path = "io" }
+# TODO: pin to the "stable" branch before the merge.
 gear-wasm-builder = { git = "https://github.com/gear-tech/gear.git" }
 
 [dev-dependencies]
 gtest = { git = "https://github.com/gear-tech/gear.git" }
-gstd = { git = "https://github.com/gear-tech/gear.git", features = ["debug"] }
+gstd = { git = "https://github.com/gear-tech/gear.git", branch = "stable", features = ["debug"] }
 tokio = "1"
 gclient = { git = "https://github.com/gear-tech/gear.git" }
 
