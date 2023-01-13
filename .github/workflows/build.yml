@@ -44,12 +44,11 @@ jobs:
 
       - name: Run tests
         run: |
-          # TODO: replace with the "gear-stable" build before the merge.
-          curl -OL https://github.com/gear-tech/gear/releases/download/build/gear
-          chmod +x gear
+          curl -L https://get.gear.rs/gear-nightly-linux-x86_64.tar.xz -o - | tar xJ
           ./gear --tmp --dev &> /dev/null & echo -n $! > gear.pid
           make full-test
           kill `cat gear.pid`
+
       - name: Build
         run: make build
 

@@ -9,22 +9,22 @@ pub enum PingPong {
     Pong,
 }
 
-pub struct AppMetadata;
+pub struct ContractMetadata;
 
-impl Metadata for AppMetadata {
+impl Metadata for ContractMetadata {
     type Init = ();
     type Handle = InOut<PingPong, PingPong>;
     type Others = ();
     type Reply = ();
     type Signal = ();
-    type State = AppState;
+    type State = State;
 }
 
 #[derive(Encode, Decode, TypeInfo, Hash, PartialEq, PartialOrd, Eq, Ord, Clone, Debug, Default)]
-pub struct AppState(pub Vec<(ActorId, u128)>);
+pub struct State(pub Vec<(ActorId, u128)>);
 
 #[doc(hidden)]
-impl AppState {
+impl State {
     pub fn pingers(self) -> Vec<ActorId> {
         self.0.into_iter().map(|pingers| pingers.0).collect()
     }
@@ -38,15 +38,15 @@ impl AppState {
 }
 
 #[derive(Encode, Decode, TypeInfo, Hash, PartialEq, PartialOrd, Eq, Ord, Clone, Copy, Debug)]
-pub enum AppStateQuery {
+pub enum StateQuery {
     AllState,
     Pingers,
     PingCount(ActorId),
 }
 
 #[derive(Encode, Decode, TypeInfo, Hash, PartialEq, PartialOrd, Eq, Ord, Clone, Debug)]
-pub enum AppStateQueryReply {
-    AllState(<AppMetadata as Metadata>::State),
+pub enum StateQueryReply {
+    AllState(<ContractMetadata as Metadata>::State),
     Pingers(Vec<ActorId>),
     PingCount(u128),
 }

@@ -45,8 +45,8 @@ fn process_handle() -> Result<(), ContractError> {
     Ok(())
 }
 
-fn common_state() -> <AppMetadata as Metadata>::State {
-    AppState(
+fn common_state() -> <ContractMetadata as Metadata>::State {
+    State(
         static_mut_state()
             .iter()
             .map(|(pinger, ping_count)| (*pinger, *ping_count))
@@ -56,13 +56,13 @@ fn common_state() -> <AppMetadata as Metadata>::State {
 
 #[no_mangle]
 extern "C" fn meta_state() -> *const [i32; 2] {
-    let query = msg::load().expect("Failed to load or decode `AppStateQuery` from `meta_state()`");
+    let query = msg::load().expect("Failed to load or decode `StateQuery` from `meta_state()`");
     let state = common_state();
 
     let reply = match query {
-        AppStateQuery::AllState => AppStateQueryReply::AllState(state),
-        AppStateQuery::Pingers => AppStateQueryReply::Pingers(state.pingers()),
-        AppStateQuery::PingCount(actor) => AppStateQueryReply::PingCount(state.ping_count(actor)),
+        StateQuery::AllState => StateQueryReply::AllState(state),
+        StateQuery::Pingers => StateQueryReply::Pingers(state.pingers()),
+        StateQuery::PingCount(actor) => StateQueryReply::PingCount(state.ping_count(actor)),
     };
 
     util::to_leak_ptr(reply.encode())
@@ -70,8 +70,9 @@ extern "C" fn meta_state() -> *const [i32; 2] {
 
 #[no_mangle]
 extern "C" fn state() {
-    reply(common_state())
-        .expect("Failed to encode or reply with `<AppMetadata as Metadata>::State` from `state()`");
+    reply(common_state()).expect(
+        "Failed to encode or reply with `<ContractMetadata as Metadata>::State` from `state()`",
+    );
 }
 
 #[no_mangle]
@@ -90,6 +91,6 @@ gstd::metadata! {
         input: PingPong,
         output: PingPong,
     state:
-        input: AppStateQuery,
-        output: AppStateQueryReply,
+        input: StateQuery,
+        output: StateQueryReply,
 }

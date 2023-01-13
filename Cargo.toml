@@ -18,6 +18,7 @@ app-io = { path = "io" }
 gear-wasm-builder = { git = "https://github.com/gear-tech/gear.git" }
 
 [dev-dependencies]
+app-state = { path = "state", features = ["binary-vendor"] }
 gtest = { git = "https://github.com/gear-tech/gear.git" }
 gstd = { git = "https://github.com/gear-tech/gear.git", branch = "stable", features = ["debug"] }
 tokio = "1"

@@ -31,8 +31,8 @@ fn test() {
         expected_state.push((actor.into(), 1))
     }
 
-    let mut state = if let AppStateQueryReply::AllState(state) =
-        program.meta_state(AppStateQuery::AllState).unwrap()
+    let mut state = if let StateQueryReply::AllState(state) =
+        program.meta_state(StateQuery::AllState).unwrap()
     {
         state
     } else {
@@ -50,9 +50,8 @@ fn test() {
 
     assert!(result.contains(&Log::builder().payload(PingPong::Pong)));
 
-    let ping_count = if let AppStateQueryReply::PingCount(ping_count) = program
-        .meta_state(AppStateQuery::PingCount(2.into()))
-        .unwrap()
+    let ping_count = if let StateQueryReply::PingCount(ping_count) =
+        program.meta_state(StateQuery::PingCount(2.into())).unwrap()
     {
         ping_count
     } else {

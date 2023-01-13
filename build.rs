@@ -1,5 +1,5 @@
-use app_io::AppMetadata;
+use app_io::ContractMetadata;
 
 fn main() {
-    gear_wasm_builder::build_with_metadata::<AppMetadata>();
+    gear_wasm_builder::build_with_metadata::<ContractMetadata>();
 }
