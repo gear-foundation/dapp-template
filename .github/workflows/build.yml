@@ -44,6 +44,7 @@ jobs:
 
       - name: Run tests
         run: |
+          # TODO: replace with the "gear-stable" build before the merge.
           curl -OL https://github.com/gear-tech/gear/releases/download/build/gear
           chmod +x gear
           ./gear --tmp --dev &> /dev/null & echo -n $! > gear.pid
