@@ -1,5 +1,3 @@
-#![no_std]
-
 use app_io::*;
 use gmeta::{metawasm, Metadata};
 use gstd::{prelude::*, ActorId};
