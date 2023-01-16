@@ -29,7 +29,7 @@ pre-commit: fmt lint full-test
 
 test:
 	@echo ⚙️ Running unit tests...
-	@cargo +nightly t
+	@cargo +nightly t -Fbinary-vendor
 
 full-test:
 	@echo ⚙️ Running all tests...
