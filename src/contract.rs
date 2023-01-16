@@ -84,13 +84,3 @@ extern "C" fn metahash() {
 fn reply(payload: impl Encode) -> GstdResult<MessageId> {
     msg::reply(payload, 0)
 }
-
-gstd::metadata! {
-    title: "App",
-    handle:
-        input: PingPong,
-        output: PingPong,
-    state:
-        input: StateQuery,
-        output: StateQueryReply,
-}
