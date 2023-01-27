@@ -8,14 +8,12 @@ authors = ["Gear Technologies"]
 [dependencies]
 app-io = { path = "io" }
 gstd = { git = "https://github.com/gear-tech/gear.git", branch = "stable" }
-# TODO: pin to the "stable" branch before the merge.
-gmeta = { git = "https://github.com/gear-tech/gear.git" }
+gmeta = { git = "https://github.com/gear-tech/gear.git", branch = "stable" }
 hashbrown = "0.13"
 
 [build-dependencies]
 app-io = { path = "io" }
-# TODO: pin to the "stable" branch before the merge.
-gear-wasm-builder = { git = "https://github.com/gear-tech/gear.git" }
+gear-wasm-builder = { git = "https://github.com/gear-tech/gear.git", branch = "stable" }
 
 [dev-dependencies]
 app-state = { path = "state" }

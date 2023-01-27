@@ -22,7 +22,13 @@ async fn gclient_test() -> Result<()> {
         .await?
         .min_limit;
     let (mut message_id, program_id, _) = client
-        .upload_program_bytes(WASM, gclient::bytes_now(), [], gas_limit, 0)
+        .upload_program_bytes(
+            WASM,
+            gclient::now_in_micros().to_le_bytes(),
+            [],
+            gas_limit,
+            0,
+        )
         .await?;
 
     assert!(listener.message_processed(message_id).await?.succeed());
