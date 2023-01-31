@@ -33,4 +33,4 @@ test:
 
 full-test:
 	@echo ⚙️ Running all tests...
-	@cargo +nightly t -Fbinary-vendor -- --include-ignored
+	@cargo +nightly t -Fbinary-vendor -- --include-ignored --test-threads=1
