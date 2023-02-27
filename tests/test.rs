@@ -31,9 +31,7 @@ fn test() {
         expected_state.push((actor.into(), 1))
     }
 
-    let mut state = if let StateQueryReply::AllState(state) =
-        program.meta_state(StateQuery::AllState).unwrap()
-    {
+    let mut state = if let StateQueryReply::AllState(state) = program.read_state().unwrap() {
         state
     } else {
         unreachable!();
@@ -50,9 +48,7 @@ fn test() {
 
     assert!(result.contains(&Log::builder().payload(PingPong::Pong)));
 
-    let ping_count = if let StateQueryReply::PingCount(ping_count) =
-        program.meta_state(StateQuery::PingCount(2.into())).unwrap()
-    {
+    let ping_count = if let StateQueryReply::PingCount(ping_count) = program.read_state().unwrap() {
         ping_count
     } else {
         unreachable!();
