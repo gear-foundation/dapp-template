@@ -4,7 +4,7 @@ use app_io::*;
 use gmeta::{metawasm, Metadata};
 use gstd::{prelude::*, ActorId};
 
-#[cfg(feature = "dummy")]
+#[cfg(feature = "binary-vendor")]
 include!(concat!(env!("OUT_DIR"), "/wasm_binary.rs"));
 
 #[metawasm]

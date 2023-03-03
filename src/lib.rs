@@ -9,16 +9,17 @@ use gstd::{
     ActorId, MessageId,
 };
 use hashbrown::HashMap;
+use hint::unreachable_unchecked;
 
-#[cfg(feature = "dummy")]
+#[cfg(feature = "binary-vendor")]
 include!(concat!(env!("OUT_DIR"), "/wasm_binary.rs"));
 
 static mut STATE: Option<HashMap<ActorId, u128>> = None;
 
-fn static_mut_state() -> &'static mut HashMap<ActorId, u128> {
+unsafe fn state_mut() -> &'static mut HashMap<ActorId, u128> {
     match unsafe { &mut STATE } {
         Some(state) => state,
-        None => unreachable!("state can't be uninitialized"),
+        None => unreachable_unchecked(),
     }
 }
 
@@ -36,7 +37,7 @@ fn process_handle() -> Result<(), ContractError> {
     let payload = msg::load()?;
 
     if let PingPong::Ping = payload {
-        let pingers = static_mut_state();
+        let pingers = unsafe { state_mut() };
 
         pingers
             .entry(msg::source())
@@ -51,8 +52,10 @@ fn process_handle() -> Result<(), ContractError> {
 
 #[no_mangle]
 extern "C" fn state() {
-    let state: <ContractMetadata as Metadata>::State =
-        static_mut_state().iter().map(|(k, v)| (*k, *v)).collect();
+    let state: <ContractMetadata as Metadata>::State = unsafe { state_mut() }
+        .iter()
+        .map(|(k, v)| (*k, *v))
+        .collect();
 
     reply(state).expect("failed to encode or reply from `state()`");
 }

@@ -12,5 +12,5 @@ app-io = { path = "../io" }
 gear-wasm-builder = { git = "https://github.com/gear-tech/gear.git", branch = "testnet", features = ["metawasm"] }
 
 [features]
-dummy = []
-default = ["dummy"]
+binary-vendor = []
+default = ["binary-vendor"]

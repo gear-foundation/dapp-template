@@ -23,8 +23,13 @@ tokio = "1"
 gclient = { git = "https://github.com/gear-tech/gear.git" }
 
 [features]
-dummy = []
-default = ["dummy"]
+# Used for inserting constants with WASM binaries (NOT paths) of the contract in
+# the root crate. Usually these constants used in gclient tests instead of
+# strings with paths to the binaries in the "target" directory. If you don't
+# like this approach or don't use gclient tests, you can freely remove this
+# feature from here and from the rest of the code.
+binary-vendor = []
+default = ["binary-vendor"]
 
 # It's necessary to include all metawasm crates in the workspace section,
 # otherwise they'll be ignored by Cargo and won't be built.
