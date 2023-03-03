@@ -12,7 +12,7 @@ pub mod metafns {
     pub type State = <ContractMetadata as Metadata>::State;
 
     pub fn pingers(state: State) -> Vec<ActorId> {
-        state.into_iter().map(|pingers| pingers.0).collect()
+        state.into_iter().map(|(pinger, _)| pinger).collect()
     }
 
     pub fn ping_count(state: State, actor: ActorId) -> u128 {
