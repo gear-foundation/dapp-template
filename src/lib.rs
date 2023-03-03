@@ -17,7 +17,7 @@ include!(concat!(env!("OUT_DIR"), "/wasm_binary.rs"));
 static mut STATE: Option<HashMap<ActorId, u128>> = None;
 
 unsafe fn state_mut() -> &'static mut HashMap<ActorId, u128> {
-    match unsafe { &mut STATE } {
+    match &mut STATE {
         Some(state) => state,
         None => unreachable_unchecked(),
     }
