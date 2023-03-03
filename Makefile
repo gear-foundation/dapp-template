@@ -28,4 +28,6 @@ test:
 
 full-test:
 	@echo ⚙️ Running all tests...
+	# TODO: remove the `test-thread` option when multithread tests will be
+	# allowed.
 	@cargo +nightly t -- --include-ignored --test-threads=1
