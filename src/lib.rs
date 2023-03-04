@@ -9,7 +9,6 @@ use gstd::{
     ActorId, MessageId,
 };
 use hashbrown::HashMap;
-use hint::unreachable_unchecked;
 
 #[cfg(feature = "binary-vendor")]
 include!(concat!(env!("OUT_DIR"), "/wasm_binary.rs"));
@@ -17,10 +16,7 @@ include!(concat!(env!("OUT_DIR"), "/wasm_binary.rs"));
 static mut STATE: Option<HashMap<ActorId, u128>> = None;
 
 unsafe fn state_mut() -> &'static mut HashMap<ActorId, u128> {
-    match &mut STATE {
-        Some(state) => state,
-        None => unreachable_unchecked(),
-    }
+    STATE.as_mut().unwrap_unchecked()
 }
 
 #[no_mangle]
