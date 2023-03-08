@@ -1,7 +1,7 @@
-use app::WASM_BINARY_OPT as WASM;
+use app::WASM_BINARY_OPT;
 use app_io::*;
-use app_state::{WASM_BINARY as META_WASM, WASM_EXPORTS as META_WASM_FNS};
-use gclient::{EventProcessor, GearApi, Result};
+use app_state::{WASM_BINARY, WASM_EXPORTS};
+use gclient::{EventProcessor, GearApi, Node, Result};
 use gstd::{prelude::*, ActorId};
 
 const ALICE: [u8; 32] = [
@@ -12,19 +12,19 @@ const ALICE: [u8; 32] = [
 #[tokio::test]
 #[ignore]
 async fn gclient_test() -> Result<()> {
-    let client = GearApi::dev()
-        .await
-        .expect("The node must be running for a gclient test");
+    // TODO: replace `.unwrap()` with `?`.
+    let node = Node::try_from_path(env!("GEAR_NODE_PATH")).unwrap();
+    let client = GearApi::node(&node).await?;
     let mut listener = client.subscribe().await?;
 
     let mut gas_limit = client
-        .calculate_upload_gas(None, WASM.into(), vec![], 0, true)
+        .calculate_upload_gas(None, WASM_BINARY_OPT.into(), vec![], 0, true)
         .await?
         .min_limit;
     let (mut message_id, program_id, _) = client
         .upload_program_bytes(
-            WASM,
-            gclient::now_in_micros().to_le_bytes(),
+            WASM_BINARY_OPT,
+            gclient::now_micros().to_le_bytes(),
             [],
             gas_limit,
             0,
@@ -47,17 +47,19 @@ async fn gclient_test() -> Result<()> {
         PingPong::Pong,
         Decode::decode(
             &mut raw_reply
-                .expect("Received an error message instead of a reply")
+                .expect("action failed, received an error message instead of a reply")
                 .as_slice()
         )?
     );
+
+    let state_binary = WASM_BINARY.to_vec();
 
     assert_eq!(
         client
             .read_state_using_wasm::<_, u128>(
                 program_id,
-                META_WASM_FNS[2],
-                META_WASM.into(),
+                WASM_EXPORTS[2],
+                state_binary.clone(),
                 Some(ActorId::from(ALICE))
             )
             .await?,
@@ -68,8 +70,8 @@ async fn gclient_test() -> Result<()> {
         client
             .read_state_using_wasm::<(), Vec<ActorId>>(
                 program_id,
-                META_WASM_FNS[1],
-                META_WASM.into(),
+                WASM_EXPORTS[1],
+                state_binary,
                 None
             )
             .await?,

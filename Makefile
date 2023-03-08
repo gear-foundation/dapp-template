@@ -18,19 +18,15 @@ init:
 
 lint:
 	@echo ⚙️ Running the linter...
-	@cargo +nightly clippy --workspace -- -D warnings
-	@cargo +nightly clippy \
-	--all-targets \
-	--workspace \
-	-Fbinary-vendor \
-	-- -D warnings
+	@cargo +nightly clippy --workspace --all-targets -- -D warnings
 
 pre-commit: fmt lint full-test
 
 test:
 	@echo ⚙️ Running unit tests...
-	@cargo +nightly t -Fbinary-vendor
+	@cargo +nightly t
 
 full-test:
 	@echo ⚙️ Running all tests...
-	@cargo +nightly t -Fbinary-vendor -- --include-ignored --test-threads=1
+# TODO: remove the `test-thread` option when multithread tests will be allowed.
+	@cargo +nightly t -- --include-ignored --test-threads=1

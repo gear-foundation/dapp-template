@@ -9,7 +9,7 @@
 [![Build][build_badge]][build_href]
 [![License][lic_badge]][lic_href]
 
-[build_badge]: https://github.com/gear-dapps/app/workflows/Build/badge.svg
+[build_badge]: https://img.shields.io/github/actions/workflow/status/gear-dapps/app/build.yml?label=Build
 [build_href]: https://github.com/gear-dapps/app/actions/workflows/build.yml
 
 [lic_badge]: https://img.shields.io/badge/License-MIT-success
