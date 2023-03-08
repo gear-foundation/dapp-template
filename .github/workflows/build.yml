@@ -14,6 +14,8 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GEAR_NODE_PATH: ./gear
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -43,8 +45,6 @@ jobs:
         run: make lint
 
       - name: Run tests
-        env:
-          GEAR_NODE_PATH: ./gear
         run: |
           curl -L https://get.gear.rs/gear-nightly-linux-x86_64.tar.xz -o - | tar xJ
           make full-test
