@@ -15,8 +15,12 @@ include!(concat!(env!("OUT_DIR"), "/wasm_binary.rs"));
 
 static mut STATE: Option<HashMap<ActorId, u128>> = None;
 
-unsafe fn state_mut() -> &'static mut HashMap<ActorId, u128> {
-    STATE.as_mut().unwrap_unchecked()
+fn state_mut() -> &'static mut HashMap<ActorId, u128> {
+    let state = unsafe { STATE.as_mut() };
+
+    debug_assert!(state.is_some(), "state isn't initialized");
+
+    unsafe { state.unwrap_unchecked() }
 }
 
 #[no_mangle]
@@ -33,7 +37,7 @@ fn process_handle() -> Result<(), ContractError> {
     let payload = msg::load()?;
 
     if let PingPong::Ping = payload {
-        let pingers = unsafe { state_mut() };
+        let pingers = state_mut();
 
         pingers
             .entry(msg::source())
@@ -48,10 +52,8 @@ fn process_handle() -> Result<(), ContractError> {
 
 #[no_mangle]
 extern "C" fn state() {
-    let state: <ContractMetadata as Metadata>::State = unsafe { state_mut() }
-        .iter()
-        .map(|(k, v)| (*k, *v))
-        .collect();
+    let state: <ContractMetadata as Metadata>::State =
+        state_mut().iter().map(|(k, v)| (*k, *v)).collect();
 
     reply(state).expect("failed to encode or reply from `state()`");
 }

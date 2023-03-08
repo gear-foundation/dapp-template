@@ -43,11 +43,11 @@ jobs:
         run: make lint
 
       - name: Run tests
+        env:
+          GEAR_NODE_PATH: ./gear
         run: |
           curl -L https://get.gear.rs/gear-nightly-linux-x86_64.tar.xz -o - | tar xJ
-          ./gear --tmp --dev &> /dev/null & echo -n $! > gear.pid
           make full-test
-          kill `cat gear.pid`
 
       - name: Build
         run: make build
