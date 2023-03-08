@@ -12,6 +12,7 @@ const ALICE: [u8; 32] = [
 #[tokio::test]
 #[ignore]
 async fn gclient_test() -> Result<()> {
+    // TODO: replace `.unwrap()` with `?`.
     let node = Node::try_from_path(env!("GEAR_NODE_PATH")).unwrap();
     let client = GearApi::node(&node).await?;
     let mut listener = client.subscribe().await?;
