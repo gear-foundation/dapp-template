@@ -106,4 +106,4 @@ jobs:
           prerelease: true
           tag_name: build
           draft: false
-          files: artifact/*
+          files: artifact/**
