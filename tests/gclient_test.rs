@@ -1,7 +1,7 @@
 use app::WASM_BINARY_OPT;
 use app_io::*;
 use app_state::{WASM_BINARY, WASM_EXPORTS};
-use gclient::{EventProcessor, GearApi, Node, Result};
+use gclient::{EventProcessor, GearApi, Result};
 use gstd::{prelude::*, ActorId};
 
 const ALICE: [u8; 32] = [
@@ -12,9 +12,7 @@ const ALICE: [u8; 32] = [
 #[tokio::test]
 #[ignore]
 async fn gclient_test() -> Result<()> {
-    // TODO: replace `.unwrap()` with `?`.
-    let node = Node::try_from_path(env!("GEAR_NODE_PATH")).unwrap();
-    let client = GearApi::node(&node).await?;
+    let client = GearApi::dev_from_path(env!("GEAR_NODE_PATH")).await?;
     let mut listener = client.subscribe().await?;
 
     let mut gas_limit = client
