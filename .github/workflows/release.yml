@@ -3,7 +3,6 @@ name: Release
 on:
   push:
     tags: ['*']
-  pull_request: # FIXME: Remove!
 
 env:
   CARGO_TERM_COLOR: always
@@ -72,7 +71,6 @@ jobs:
 
   publish:
     name: Publish binaries
-    if: false # FIXME: Remove!
     needs: build
     runs-on: ubuntu-latest
     steps:
