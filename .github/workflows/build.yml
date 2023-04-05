@@ -43,8 +43,8 @@ jobs:
         uses: actions-rs/toolchain@v1
         with:
           toolchain: nightly-${{ env.NIGHTLY_TOOLCHAIN_VERSION }}
+          components: clippy, rustfmt, llvm-tools-preview
           target: wasm32-unknown-unknown
-          components: llvm-tools-preview
 
       - name: Pin to specific nightly toolchain
         if: ${{ env.NIGHTLY_TOOLCHAIN_VERSION != '' }}
