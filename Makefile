@@ -7,7 +7,7 @@ all: init build test
 
 build:
 	@echo ⚙️ Building a release...
-	@cargo +nightly b -r --workspace
+	@cargo b -r --workspace
 	@ls -l target/wasm32-unknown-unknown/release/*.wasm
 
 fmt:
@@ -23,15 +23,14 @@ init:
 
 lint:
 	@echo ⚙️ Running the linter...
-	@cargo +nightly clippy --workspace --all-targets -- -D warnings
+	@cargo clippy --workspace --all-targets -- -D warnings
 
 pre-commit: fmt lint full-test
 
 test:
 	@echo ⚙️ Running unit tests...
-	@cargo +nightly t
+	@cargo t
 
 full-test:
 	@echo ⚙️ Running all tests...
-# TODO: remove the `test-thread` option when multithread tests will be allowed.
-	@cargo +nightly t -- --include-ignored --test-threads=1
+	@cargo t -- --include-ignored
