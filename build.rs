@@ -1,5 +1,8 @@
 use app_io::ContractMetadata;
+use gear_wasm_builder::WasmBuilder;
 
 fn main() {
-    gear_wasm_builder::build_with_metadata::<ContractMetadata>();
+    WasmBuilder::with_meta(<ContractMetadata as gmeta::Metadata>::repr())
+        .exclude_features(vec!["binary-vendor"])
+        .build();
 }
