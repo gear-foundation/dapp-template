@@ -14,6 +14,7 @@ hashbrown = "0.13"
 [build-dependencies]
 app-io = { path = "io" }
 gear-wasm-builder = { git = "https://github.com/gear-tech/gear.git", rev = "78dfa07" }
+gmeta = { git = "https://github.com/gear-tech/gear.git", rev = "78dfa07" }
 
 [dev-dependencies]
 app-state = { path = "state" }
