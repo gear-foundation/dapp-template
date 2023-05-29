@@ -24,7 +24,7 @@ impl Metadata for ContractMetadata {
     ///
     /// Describes incoming/outgoing types for the `init()` function.
     ///
-    /// Unit tuple is used as neither incoming nor outgoing messages are
+    /// The unit tuple is used as neither incoming nor outgoing messages are
     /// expected in the `init()` function.
     type Init = ();
     /// Handle message type.
@@ -39,7 +39,7 @@ impl Metadata for ContractMetadata {
     /// Describes incoming/outgoing types for the `main()` function in case of
     /// asynchronous interaction.
     ///
-    /// Unit tuple is used as we don't use asynchronous interaction in this
+    /// The unit tuple is used as we don't use asynchronous interaction in this
     /// contract.
     type Others = ();
     /// Reply message type.
@@ -47,14 +47,14 @@ impl Metadata for ContractMetadata {
     /// Describes incoming/outgoing types of messages performed using the
     /// `handle_reply()` function.
     ///
-    /// Unit tuple is used as we don't process any replies in this contract.
+    /// The unit tuple is used as we don't process any replies in this contract.
     type Reply = ();
     /// Signal message type.
     ///
     /// Describes only the outgoing type from the program while processing the
     /// system signal.
     ///
-    /// Unit tuple is used as we don't process any signals in this contract.
+    /// The unit tuple is used as we don't process any signals in this contract.
     type Signal = ();
     /// State message type.
     ///
