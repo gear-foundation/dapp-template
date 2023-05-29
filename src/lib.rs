@@ -1,3 +1,6 @@
+//! Template for creating a new app. Use it as a starting point for your own
+//! dApp.
+
 #![no_std]
 
 use app_io::*;

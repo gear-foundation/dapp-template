@@ -1,4 +1,4 @@
-.PHONY: all build fmt init lint pre-commit test full-test deps
+.PHONY: all build fmt fmt-doc init lint pre-commit test full-test deps
 
 all: init build test
 
@@ -10,6 +10,10 @@ build:
 fmt:
 	@echo ⚙️ Checking a format...
 	@cargo fmt --all --check
+
+fmt-doc:
+	@echo ⚙️ Format the docs...
+	@cargo fmt -- --config wrap_comments=true,format_code_in_doc_comments=true
 
 init:
 	@echo ⚙️ Installing a toolchain \& a target...
