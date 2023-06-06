@@ -9,7 +9,7 @@ authors = ["Gear Technologies"]
 app-io = { path = "io" }
 gstd = { git = "https://github.com/gear-tech/gear.git", rev = "78dfa07" }
 gmeta = { git = "https://github.com/gear-tech/gear.git", rev = "78dfa07" }
-hashbrown = "0.13"
+hashbrown = "0.14"
 
 [build-dependencies]
 app-io = { path = "io" }
