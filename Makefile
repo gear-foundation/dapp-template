@@ -1,6 +1,6 @@
-.PHONY: all build fmt fmt-doc init lint pre-commit test full-test deps
+.PHONY: all build fmt fmt-doc lint pre-commit test full-test deps
 
-all: init build test
+all: build test
 
 build:
 	@echo ⚙️ Building a release...
