@@ -2,7 +2,7 @@ use app_io::*;
 use app_state::{WASM_BINARY, WASM_EXPORTS};
 use gmeta::Metadata;
 use gstd::ActorId;
-use gtest::{Log, Program, System};
+use gtest::{Log, Program, System, CoreLog};
 
 #[test]
 fn test() {
@@ -17,7 +17,7 @@ fn test() {
 
     result = program.send(2, PingPong::Pong);
 
-    assert!(result.log().is_empty());
+    assert!(!result.main_failed());
 
     // State reading
 
