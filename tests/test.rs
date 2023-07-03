@@ -2,7 +2,7 @@ use app_io::*;
 use app_state::{WASM_BINARY, WASM_EXPORTS};
 use gmeta::Metadata;
 use gstd::ActorId;
-use gtest::{Log, Program, System, CoreLog};
+use gtest::{Log, Program, System};
 
 #[test]
 fn test() {
