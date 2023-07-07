@@ -13,7 +13,7 @@ hashbrown = "0.14"
 
 [build-dependencies]
 app-io = { path = "io" }
-gear-wasm-builder = { git = "https://github.com/gear-tech/gear.git", rev = "946ac47", features = ["wasm-opt"] }
+gear-wasm-builder = { git = "https://github.com/gear-tech/gear.git", rev = "946ac47" }
 gmeta = { git = "https://github.com/gear-tech/gear.git", rev = "946ac47" }
 
 [dev-dependencies]
@@ -30,7 +30,8 @@ gclient = { git = "https://github.com/gear-tech/gear.git", rev = "946ac47" }
 # like this approach or don't use gclient tests, you can freely remove this
 # feature from here and from the rest of the code.
 binary-vendor = []
-default = ["binary-vendor"]
+wasm-opt = ["gear-wasm-builder/wasm-opt"]
+default = ["binary-vendor", "wasm-opt"]
 
 # It's necessary to include all metawasm crates in the workspace section,
 # otherwise they'll be ignored by Cargo and won't be built.
