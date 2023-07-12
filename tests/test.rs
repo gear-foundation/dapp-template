@@ -17,7 +17,7 @@ fn test() {
 
     result = program.send(2, PingPong::Pong);
 
-    assert!(result.log().is_empty());
+    assert!(!result.main_failed());
 
     // State reading
 
