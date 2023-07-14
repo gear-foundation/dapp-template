@@ -31,8 +31,7 @@ jobs:
         run: >
           __GEAR_WASM_BUILDER_NO_BUILD=1
           RUSTDOCFLAGS="--enable-index-page -Zunstable-options"
-          cargo doc --no-deps --workspace
-          chmod -R 644 target/doc
+          cargo doc --no-deps --workspace && chmod -R 644 target/doc
 
       - name: Setup GitHub Pages
         # if: github.event_name == 'push'
