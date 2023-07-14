@@ -26,7 +26,6 @@ jobs:
 
   build:
     name: Build
-    needs: prepare
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -50,7 +49,7 @@ jobs:
 
   publish:
     name: Publish binaries
-    needs: build
+    needs: [prepare, build]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -86,8 +85,9 @@ jobs:
         run: |
           awk '(/^## \[[0-9]+\.[0-9]+\.[0-9]+\]/ || /^\[Unreleased\]/) && STATE=="show" { exit }
               STATE=="show";
-              /^## \[${{ steps.version.outputs.VERSION }}\]/ { STATE="show" }' CHANGELOG.md \
+              /^## \[${{ needs.prepare.outputs.version }}\]/ { STATE="show" }' CHANGELOG.md \
           | awk 'NF { SHOW=1 } SHOW' > RELEASE_NOTES.md
+          cat RELEASE_NOTES.md
 
       - name: Publish
         uses: softprops/action-gh-release@v1
