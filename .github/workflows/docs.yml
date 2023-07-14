@@ -26,13 +26,18 @@ jobs:
 
       - name: Test doc examples
         if: false # github.event_name == 'pull_request'
-        run: __GEAR_WASM_BUILDER_NO_BUILD=1 cargo test --doc --workspace
+        env:
+          __GEAR_WASM_BUILDER_NO_BUILD: 1
+        run: cargo test --doc --workspace
 
       - name: Build docs
-        run: >
-          __GEAR_WASM_BUILDER_NO_BUILD=1
-          RUSTDOCFLAGS="--enable-index-page -Zunstable-options"
-          cargo doc --no-deps --workspace && chmod -R 644 target/doc
+        env:
+          RUSTDOCFLAGS: --enable-index-page -Zunstable-options
+          __GEAR_WASM_BUILDER_NO_BUILD: 1
+        run: |
+          cargo doc --no-deps --workspace
+          ls -la target/doc
+          chmod -R 644 target/doc || true
 
       - name: Setup GitHub Pages
         # if: github.event_name == 'push'
