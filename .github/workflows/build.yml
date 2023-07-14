@@ -13,6 +13,7 @@ env:
 
 jobs:
   build:
+    if: false # FIXME: Remove this line after testing
     runs-on: ubuntu-latest
     env:
       GEAR_NODE_PATH: ./gear
@@ -49,42 +50,46 @@ jobs:
             *.meta.txt
 
   upload:
-    if: github.event_name == 'push'
+    # if: github.event_name == 'push'
     runs-on: ubuntu-latest
-    needs: build
+    # needs: build
     steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v3
+      # - name: Download artifacts
+      #   uses: actions/download-artifact@v3
 
       - name: Delete previous release
         uses: dev-drprasad/delete-tag-and-release@v1.0.1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          delete_release: true
           tag_name: build
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Rename binaries
+      # - name: Rename binaries
+      #   run: |
+      #     cd artifact/target/wasm32-unknown-unknown
+      #     for WASM in */*; do
+      #       BUILD_TYPE=${WASM%/*}
+      #       NAME=`basename $WASM`
+      #       if [[ $NAME == *.opt.wasm ]]; then
+      #         NAME=${NAME%.opt.wasm}
+      #         EXT=opt.wasm
+      #       elif [[ $NAME == *.meta.wasm ]]; then
+      #         NAME=${NAME%.meta.wasm}
+      #         EXT=meta.wasm
+      #       else
+      #         NAME=${NAME%.wasm}
+      #         EXT=wasm
+      #       fi
+      #       if [ $BUILD_TYPE == debug ]; then
+      #         mv $WASM $NAME.debug.$EXT
+      #       else
+      #         mv $WASM $NAME.$EXT
+      #       fi
+      #     done
+
+      - name: Mock artifact
         run: |
-          cd artifact/target/wasm32-unknown-unknown
-          for WASM in */*; do
-            BUILD_TYPE=${WASM%/*}
-            NAME=`basename $WASM`
-            if [[ $NAME == *.opt.wasm ]]; then
-              NAME=${NAME%.opt.wasm}
-              EXT=opt.wasm
-            elif [[ $NAME == *.meta.wasm ]]; then
-              NAME=${NAME%.meta.wasm}
-              EXT=meta.wasm
-            else
-              NAME=${NAME%.wasm}
-              EXT=wasm
-            fi
-            if [ $BUILD_TYPE == debug ]; then
-              mv $WASM $NAME.debug.$EXT
-            else
-              mv $WASM $NAME.$EXT
-            fi
-          done
+          mkdir -p artifact
+          touch artifact/empty-file.txt
 
       - name: Upload
         uses: softprops/action-gh-release@v1
