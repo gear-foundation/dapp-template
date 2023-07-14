@@ -92,7 +92,7 @@ jobs:
       - name: Mock artifact
         run: |
           mkdir -p artifact
-          touch artifact/empty-file.txt
+          echo "Hey!" > artifact/empty-file.txt
 
       - name: Upload
         uses: softprops/action-gh-release@v1
