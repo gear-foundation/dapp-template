@@ -35,18 +35,11 @@ jobs:
           __GEAR_WASM_BUILDER_NO_BUILD: 1
         run: |
           cargo doc --no-deps --workspace
-          ls -la target/doc
+          rm -f target/doc/.lock
 
       - name: Setup GitHub Pages
         # if: github.event_name == 'push'
         uses: actions/configure-pages@v3
-
-      - name: Fix permissions
-        # if: github.event_name == 'push'
-        run: |
-          chmod -c -R +rX "target/doc/" | while read line; do
-            echo "::warning title=Invalid file permissions automatically fixed::$line"
-          done
 
       - name: Upload Pages artifact
         # if: github.event_name == 'push'
