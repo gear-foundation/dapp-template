@@ -24,7 +24,7 @@ jobs:
         uses: Swatinem/rust-cache@v2
 
       - name: Test doc examples
-        if: false # github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request'
         env:
           __GEAR_WASM_BUILDER_NO_BUILD: 1
         run: cargo test --doc --workspace
@@ -38,15 +38,15 @@ jobs:
           rm -f target/doc/.lock
 
       - name: Setup GitHub Pages
-        # if: github.event_name == 'push'
+        if: github.event_name == 'push'
         uses: actions/configure-pages@v3
 
       - name: Upload Pages artifact
-        # if: github.event_name == 'push'
+        if: github.event_name == 'push'
         uses: actions/upload-pages-artifact@v2
         with:
             path: target/doc
 
       - name: Deploy to GitHub Pages
-        # if: github.event_name == 'push'
+        if: github.event_name == 'push'
         uses: actions/deploy-pages@v2
