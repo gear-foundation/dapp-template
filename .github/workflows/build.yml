@@ -16,7 +16,6 @@ env:
 
 jobs:
   build:
-    if: false # FIXME: Remove this line after testing
     runs-on: ubuntu-latest
     env:
       GEAR_NODE_PATH: ./gear

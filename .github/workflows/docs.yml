@@ -7,7 +7,6 @@ on:
     branches: [master]
 
 permissions:
-  contents: write
   id-token: write
   pages: write
 
@@ -37,11 +36,17 @@ jobs:
         run: |
           cargo doc --no-deps --workspace
           ls -la target/doc
-          chmod -R 644 target/doc || true
 
       - name: Setup GitHub Pages
         # if: github.event_name == 'push'
         uses: actions/configure-pages@v3
+
+      - name: Fix permissions
+        # if: github.event_name == 'push'
+        run: |
+          chmod -c -R +rX "target/doc/" | while read line; do
+            echo "::warning title=Invalid file permissions automatically fixed::$line"
+          done
 
       - name: Upload Pages artifact
         # if: github.event_name == 'push'
