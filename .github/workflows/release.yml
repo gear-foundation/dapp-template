@@ -4,6 +4,9 @@ on:
   push:
     tags: ['*']
 
+permissions:
+  contents: write
+
 env:
   CARGO_TERM_COLOR: always
 
@@ -79,8 +82,15 @@ jobs:
             fi
           done
 
+      - name: Prepare release notes
+        run: |
+          awk '(/^## \[[0-9]+\.[0-9]+\.[0-9]+\]/ || /^\[Unreleased\]/) && STATE=="show" { exit }
+              STATE=="show";
+              /^## \[${{ steps.version.outputs.VERSION }}\]/ { STATE="show" }' CHANGELOG.md \
+          | awk 'NF { SHOW=1 } SHOW' > RELEASE_NOTES.md
+
       - name: Publish
         uses: softprops/action-gh-release@v1
         with:
           files: artifact/**
-          body_path: CHANGELOG.md # TODO: Cut piece related to the current version only
+          body_path: RELEASE_NOTES.md
