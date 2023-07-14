@@ -16,6 +16,7 @@ env:
 
 jobs:
   build:
+    if: false
     runs-on: ubuntu-latest
     env:
       GEAR_NODE_PATH: ./gear

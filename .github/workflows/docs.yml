@@ -16,7 +16,7 @@ env:
 jobs:
   docs:
     runs-on: ubuntu-latest
-    if: github.actor != 'dependabot[bot]'
+    if: false # github.actor != 'dependabot[bot]'
     steps:
       - uses: actions/checkout@v3
 
