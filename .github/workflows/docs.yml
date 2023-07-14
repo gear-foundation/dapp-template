@@ -23,29 +23,24 @@ jobs:
       - name: Cache
         uses: Swatinem/rust-cache@v2
 
-      # - name: Test doc examples
-      #   run: cargo test --doc --workspace
+      - name: Test doc examples
+        run: cargo test --doc --workspace
 
-      # - name: Build docs
-      #   run: >
-      #     RUSTDOCFLAGS="--enable-index-page -Zunstable-options"
-      #     cargo doc --no-deps --workspace
-
-      - name: Mock docs
-        run: |
-          mkdir -p target/doc
-          echo 'Hello!' > target/doc/index.html
+      - name: Build docs
+        run: >
+          RUSTDOCFLAGS="--enable-index-page -Zunstable-options"
+          cargo doc --no-deps --workspace
 
       - name: Setup GitHub Pages
-        # if: github.event_name == 'push'
+        if: github.event_name == 'push'
         uses: actions/configure-pages@v3
 
       - name: Upload Pages artifact
-        # if: github.event_name == 'push'
+        if: github.event_name == 'push'
         uses: actions/upload-pages-artifact@v2
         with:
             path: target/doc
 
       - name: Deploy to GitHub Pages
-        # if: github.event_name == 'push'
+        if: github.event_name == 'push'
         uses: actions/deploy-pages@v2
