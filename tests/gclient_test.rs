@@ -12,8 +12,7 @@ const ALICE: [u8; 32] = [
 #[tokio::test]
 #[ignore]
 async fn gclient_test() -> Result<()> {
-    // let client = GearApi::dev_from_path(env!("GEAR_NODE_PATH")).await?;
-    let client = GearApi::dev().await?;
+    let client = GearApi::dev_from_path(env!("GEAR_NODE_PATH")).await?;
     let mut listener = client.subscribe().await?;
 
     let gas_limit = client
