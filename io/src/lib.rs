@@ -2,7 +2,7 @@
 
 #![no_std]
 
-use gmeta::{InOut, Metadata};
+use gmeta::{InOut, Metadata, Out};
 use gstd::{prelude::*, ActorId};
 
 /// The main type used as an input and output message.
@@ -62,5 +62,5 @@ impl Metadata for ContractMetadata {
     /// function.
     ///
     /// We use a list of ping counts (`u128`) for each pinger (`ActorId`).
-    type State = Vec<(ActorId, u128)>;
+    type State = Out<(ActorId, u128)>;
 }
