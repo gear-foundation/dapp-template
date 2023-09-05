@@ -62,5 +62,5 @@ impl Metadata for ContractMetadata {
     /// function.
     ///
     /// We use a list of ping counts (`u128`) for each pinger (`ActorId`).
-    type State = Out<(ActorId, u128)>;
+    type State = Out<Vec<(ActorId, u128)>>;
 }
