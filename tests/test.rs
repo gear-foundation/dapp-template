@@ -1,6 +1,5 @@
 use app_io::*;
 use app_state::{WASM_BINARY, WASM_EXPORTS};
-use gmeta::Metadata;
 use gstd::ActorId;
 use gtest::{Log, Program, System};
 
@@ -34,7 +33,7 @@ fn test() {
         expected_state.push((actor.into(), 1))
     }
 
-    let mut state: <ContractMetadata as Metadata>::State = program.read_state().unwrap();
+    let mut state: Vec<(ActorId, u128)> = program.read_state().unwrap();
 
     expected_state.sort_unstable();
     state.sort_unstable();

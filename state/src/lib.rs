@@ -6,8 +6,7 @@
 
 #![no_std]
 
-use app_io::*;
-use gmeta::{metawasm, Metadata};
+use gmeta::metawasm;
 use gstd::{prelude::*, ActorId};
 
 #[cfg(feature = "binary-vendor")]
@@ -15,7 +14,7 @@ include!(concat!(env!("OUT_DIR"), "/wasm_binary.rs"));
 
 #[metawasm]
 pub mod metafns {
-    pub type State = <ContractMetadata as Metadata>::State;
+    pub type State = Vec<(ActorId, u128)>;
 
     /// Get a list of pingers.
     pub fn pingers(state: State) -> Vec<ActorId> {

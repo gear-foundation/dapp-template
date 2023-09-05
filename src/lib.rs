@@ -4,7 +4,6 @@
 #![no_std]
 
 use app_io::*;
-use gmeta::Metadata;
 use gstd::{errors::Result, msg, prelude::*, ActorId};
 use hashbrown::HashMap;
 
@@ -50,7 +49,7 @@ fn process_handle() -> Result<()> {
 
 #[no_mangle]
 extern "C" fn state() {
-    let state: <ContractMetadata as Metadata>::State =
+    let state: Vec<(ActorId, u128)> =
         state_mut().iter().map(|(k, v)| (*k, *v)).collect();
 
     msg::reply(state, 0).expect("failed to encode or reply from `state()`");
