@@ -57,7 +57,7 @@ async fn gclient_test() -> Result<()> {
         client
             .read_state_using_wasm::<_, u128>(
                 program_id,
-                payload: Vec<u8>::new(),
+                vec![],
                 WASM_EXPORTS[2],
                 state_binary.clone(),
                 Some(ActorId::from(ALICE)),
@@ -66,17 +66,18 @@ async fn gclient_test() -> Result<()> {
         1
     );
 
-    // assert_eq!(
-    //     client
-    //         .read_state_using_wasm::<(), Vec<ActorId>>(
-    //             program_id,
-    //             WASM_EXPORTS[1],
-    //             state_binary,
-    //             None,
-    //         )
-    //         .await?,
-    //     vec![ALICE.into()]
-    // );
+    assert_eq!(
+        client
+            .read_state_using_wasm::<(), Vec<ActorId>>(
+                program_id,
+                vec![],
+                WASM_EXPORTS[1],
+                state_binary,
+                None,
+            )
+            .await?,
+        vec![ALICE.into()]
+    );
 
     Ok(())
 }
