@@ -53,18 +53,18 @@ async fn gclient_test() -> Result<()> {
 
     let state_binary = WASM_BINARY.to_vec();
 
-    // assert_eq!(
-    //     client
-    //         .read_state_using_wasm::<_, u128>(
-    //             program_id,
-    //             state_binary.clone(),
-    //             WASM_EXPORTS[2],
-    //             Some(ActorId::from(ALICE)),
-    //             None
-    //         )
-    //         .await?,
-    //     1
-    // );
+    assert_eq!(
+        client
+            .read_state_using_wasm::<_, u128>(
+                program_id,
+                payload: Vec<u8>::new(),
+                WASM_EXPORTS[2],
+                state_binary.clone(),
+                Some(ActorId::from(ALICE)),
+            )
+            .await?,
+        1
+    );
 
     // assert_eq!(
     //     client
@@ -73,7 +73,6 @@ async fn gclient_test() -> Result<()> {
     //             WASM_EXPORTS[1],
     //             state_binary,
     //             None,
-    //             None
     //         )
     //         .await?,
     //     vec![ALICE.into()]
