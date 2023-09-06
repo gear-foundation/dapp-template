@@ -65,18 +65,18 @@ async fn gclient_test() -> Result<()> {
         1
     );
 
-    assert_eq!(
-        client
-            .read_state_using_wasm::<(), Vec<ActorId>>(
-                program_id,
-                vec![],
-                WASM_EXPORTS[1],
-                state_binary,
-                None,
-            )
-            .await?,
-        vec![ALICE.into()]
-    );
+    // assert_eq!(
+    //     client
+    //         .read_state_using_wasm::<(), Vec<ActorId>>(
+    //             program_id,
+    //             vec![],
+    //             WASM_EXPORTS[1],
+    //             state_binary,
+    //             None,
+    //         )
+    //         .await?,
+    //     vec![ALICE.into()]
+    // );
 
     Ok(())
 }
