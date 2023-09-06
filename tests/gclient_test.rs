@@ -12,6 +12,7 @@ const ALICE: [u8; 32] = [
 #[tokio::test]
 #[ignore]
 async fn gclient_test() -> Result<()> {
+    // Gear Node version 0.3.2-e9b6d89cf5c
     let client = GearApi::dev_from_path(env!("GEAR_NODE_PATH")).await?;
     let mut listener = client.subscribe().await?;
 
