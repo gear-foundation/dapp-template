@@ -27,7 +27,7 @@ extern "C" fn init() {
 
 #[no_mangle]
 extern "C" fn handle() {
-    process_handle().expect("failed to load, decode, encode, or reply from `handle()`")
+    process_handle().expect("failed to load, decode, encode or reply from `handle()`")
 }
 
 fn process_handle() -> Result<()> {
