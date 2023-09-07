@@ -49,7 +49,6 @@ fn process_handle() -> Result<()> {
 
 #[no_mangle]
 extern "C" fn state() {
-    let state: Vec<(ActorId, u128)> = state_mut().iter().map(|(k, v)| (*k, *v)).collect();
-
+    let state: Vec<_> = state_mut().into_iter().collect();
     msg::reply(state, 0).expect("failed to encode or reply from `state()`");
 }
