@@ -1,32 +1,23 @@
-//! State conversion functions.
-//!
-//! This module is responsible for converting the state of the contract into a
-//! format that can be used by the off-chain Wasm executor (e.g., in the
-//! browser).
-
 #![no_std]
 
-use app_io::*;
-use gmeta::{metawasm, Metadata};
-use gstd::{prelude::*, ActorId};
+use template_io::*;
 
-#[cfg(feature = "binary-vendor")]
-include!(concat!(env!("OUT_DIR"), "/wasm_binary.rs"));
-
-#[metawasm]
+#[gmeta::metawasm]
 pub mod metafns {
-    pub type State = <ContractMetadata as Metadata>::State;
+    pub type State = template_io::State;
 
-    /// Get a list of pingers.
-    pub fn pingers(state: State) -> Vec<ActorId> {
-        state.into_iter().map(|(pinger, _)| pinger).collect()
-    }
-
-    /// Get ping count for a pinger.
-    pub fn ping_count(state: State, actor: ActorId) -> u128 {
-        state
-            .into_iter()
-            .find_map(|(pinger, ping_count)| (pinger == actor).then_some(ping_count))
-            .unwrap_or_default()
+    pub fn query(state: State, query: StateQuery) -> StateQueryReply {
+        match query {
+            StateQuery::Pingers => {
+                StateQueryReply::Pingers(state.iter().map(|(pinger, _)| *pinger).collect())
+            }
+            StateQuery::PingCount(actor) => StateQueryReply::PingCount(
+                state
+                    .iter()
+                    .find_map(|(some_actor, count)| (some_actor == &actor).then_some(count))
+                    .copied()
+                    .unwrap_or_default(),
+            ),
+        }
     }
 }

@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+    tags: ['[0-9]+.[0-9]+.[0-9]+']
+
+env:
+  CARGO_TERM_COLOR: always
+
+permissions:
+  contents: write
+
+jobs:
+  all:
+    name: All
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: ${{ github.ref_type == 'tag' && 'Build' || 'Build & CI' }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install binaryen
+          [ $GITHUB_REF_TYPE = "tag" ] && cargo b || cargo xtask ci
+
+      - name: Update the nightly tag
+        if: github.ref == 'refs/heads/master'
+        run: |
+          git tag nightly
+          git push -f origin nightly
+
+      - name: Release
+        if: github.event_name != 'pull_request'
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{ github.ref == 'refs/heads/master' && 'Nightly' || github.ref_name }}
+          tag_name: ${{ github.ref == 'refs/heads/master' && 'nightly' || github.ref_name }}
+          prerelease: ${{ github.ref == 'refs/heads/master' }}
+          files: |
+            contracts/target/wasm32-unknown-unknown/debug/*.*.wasm
+            contracts/target/wasm32-unknown-unknown/debug/*.meta.txt
