@@ -27,14 +27,14 @@ cargo b --workspace
 
 Run all tests, except `gclient` ones:
 ```sh
-cargo t -- --skip gclient
+cargo t --workspace -- --skip gclient
 ```
 
 Run all tests:
 ```sh
 # Download the node binary.
 cargo xtask node
-cargo t
+cargo t --workspace
 ```
 
 ### 🚀 Run CI locally (should be done before a commit)

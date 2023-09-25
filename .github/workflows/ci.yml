@@ -24,7 +24,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install binaryen
-          [ $GITHUB_REF_TYPE = "tag" ] && cargo b || cargo xtask ci
+          [ $GITHUB_REF_TYPE = "tag" ] && cargo b --workspace || cargo xtask ci
 
       - name: Update the nightly tag
         if: github.ref == 'refs/heads/master'
@@ -40,5 +40,5 @@ jobs:
           tag_name: ${{ github.ref == 'refs/heads/master' && 'nightly' || github.ref_name }}
           prerelease: ${{ github.ref == 'refs/heads/master' }}
           files: |
-            contracts/target/wasm32-unknown-unknown/debug/*.*.wasm
-            contracts/target/wasm32-unknown-unknown/debug/*.meta.txt
+            target/wasm32-unknown-unknown/debug/*.*.wasm
+            target/wasm32-unknown-unknown/debug/*.meta.txt
