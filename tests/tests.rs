@@ -10,6 +10,7 @@ fn test() {
 
     system.init_logger();
 
+    let state_binary = get_state_binary();
     let program = Program::current(&system);
 
     let mut result = program.send_bytes(2, []);
@@ -50,7 +51,7 @@ fn test() {
 
     let StateQueryReply::PingCount(ping_count) = program.read_state_using_wasm(
             "query",
-            get_state_binary(),
+            state_binary.clone(),
             Some(StateQuery::PingCount(ActorId::from(2))),
         )
         .unwrap()
@@ -59,6 +60,26 @@ fn test() {
     };
 
     assert_eq!(ping_count, 2);
+
+    // Querying the state using the `pingers` metafunction
+
+    result = program.send(2, PingPong::Ping);
+
+    assert!(result.contains(&Log::builder().payload(PingPong::Pong)));
+
+    let mut pingers: Vec<ActorId> = program
+        .read_state_using_wasm::<(), _>("pingers", state_binary, None)
+        .unwrap();
+
+    pingers.sort_unstable();
+
+    assert_eq!(
+        expected_state
+            .into_iter()
+            .map(|(pinger, _)| pinger)
+            .collect::<Vec<ActorId>>(),
+        pingers,
+    );
 }
 
 fn get_state_binary() -> Vec<u8> {
