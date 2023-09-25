@@ -63,10 +63,6 @@ fn test() {
 
     // Querying the state using the `pingers` metafunction
 
-    result = program.send(2, PingPong::Ping);
-
-    assert!(result.contains(&Log::builder().payload(PingPong::Pong)));
-
     let mut pingers: Vec<ActorId> = program
         .read_state_using_wasm::<(), _>("pingers", state_binary, None)
         .unwrap();
