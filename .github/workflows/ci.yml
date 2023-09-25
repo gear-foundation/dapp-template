@@ -22,8 +22,9 @@ jobs:
 
       - name: ${{ github.ref_type == 'tag' && 'Build' || 'Build & CI' }}
         run: |
-          apt install binaryen
-          '[ $GITHUB_REF_TYPE = "tag" ] && cargo b || cargo xtask ci'
+          sudo apt-get update
+          sudo apt-get install binaryen
+          [ $GITHUB_REF_TYPE = "tag" ] && cargo b || cargo xtask ci
 
       - name: Update the nightly tag
         if: github.ref == 'refs/heads/master'
