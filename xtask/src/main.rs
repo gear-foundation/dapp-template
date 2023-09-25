@@ -49,7 +49,7 @@ fn main() -> Result<()> {
             xshell::cmd!(sh, "cargo fmt --all --check").run()?;
             xshell::cmd!(sh, "cargo clippy --workspace --all-targets -- -Dwarnings").run()?;
             node()?;
-            xshell::cmd!(sh, "cargo t").run()?;
+            xshell::cmd!(sh, "cargo t --workspace").run()?;
             docs()?;
         }
         "docs" => docs()?,
