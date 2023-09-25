@@ -1,5 +1,5 @@
 [![Open in Gitpod](https://img.shields.io/badge/Open_in-Gitpod-white?logo=gitpod)](https://gitpod.io/#https://github.com/gear-foundation/dapps)
-[![CI](https://img.shields.io/github/actions/workflow/status/gear-foundation/dapps/contracts.yml?logo=github&label=CI)](https://github.com/gear-foundation/dapps-template/actions/workflows/ci.yml)
+[![CI](https://img.shields.io/github/actions/workflow/status/gear-foundation/dapps/contracts.yml?logo=github&label=CI)](https://github.com/gear-foundation/dapp-template/actions/workflows/ci.yml)
 
 # Gear Template Contract
 
@@ -14,7 +14,7 @@ A template application. Use this repository as a template when creating a new ap
 ## Initial checklist after creating a new repository
 
 - [ ] Change the app name in `Cargo.toml`.
-- [ ] Fix badges' links in `README.md` (replace `gear-foundation/dapps-template` with `<your_username>/<your_new_app>`).
+- [ ] Fix badges' links in `README.md` (replace `gear-foundation/dapp-template` with `<your_username>/<your_new_app>`).
 - [ ] Replace a description in `README.md`.
 - [ ] Remove this section.
 ### 🏗️ Building
