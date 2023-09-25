@@ -1,8 +1,7 @@
-use std::fs;
-
 use gclient::{EventProcessor, GearApi, Result};
 use gstd::{prelude::*, ActorId};
 use gtest::{Log, Program, System};
+use std::fs;
 use template_io::*;
 
 #[test]
