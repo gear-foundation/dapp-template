@@ -1,39 +1,42 @@
-[package]
-name = "app"
+[workspace.package]
+homepage = "https://wiki.gear-tech.io/docs/examples/prerequisites"
+authors = ["Gear Foundation <hello@gear.foundation>"]
 version = "0.1.0"
-edition = "2021"
 license = "MIT"
-authors = ["Gear Technologies"]
+edition = "2021"
+publish = false
+
+[package]
+name = "template"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
 
 [dependencies]
-app-io = { path = "io" }
-gstd = { git = "https://github.com/gear-tech/gear.git", rev = "946ac47" }
-gmeta = { git = "https://github.com/gear-tech/gear.git", rev = "946ac47" }
-hashbrown = "0.14"
+gstd.workspace = true
+template-io.workspace = true
 
 [build-dependencies]
-app-io = { path = "io" }
-gear-wasm-builder = { git = "https://github.com/gear-tech/gear.git", rev = "946ac47" }
-gmeta = { git = "https://github.com/gear-tech/gear.git", rev = "946ac47" }
+gear-wasm-builder.workspace = true
+template-io.workspace = true
 
 [dev-dependencies]
-app-state = { path = "state" }
-gtest = { git = "https://github.com/gear-tech/gear.git", rev = "946ac47" }
-gstd = { git = "https://github.com/gear-tech/gear.git", rev = "946ac47", features = ["debug"] }
-tokio = "1"
-gclient = { git = "https://github.com/gear-tech/gear.git", rev = "946ac47" }
+gtest.workspace = true
+gclient.workspace = true
+tokio.workspace = true
 
-[features]
-# Used for inserting constants with WASM binaries (NOT paths) of the contract in
-# the root crate. Usually these constants used in gclient tests instead of
-# strings with paths to the binaries in the "target" directory. If you don't
-# like this approach or don't use gclient tests, you can freely remove this
-# feature from here and from the rest of the code.
-binary-vendor = []
-wasm-opt = ["gear-wasm-builder/wasm-opt"]
-default = ["binary-vendor", "wasm-opt"]
-
-# It's necessary to include all metawasm crates in the workspace section,
-# otherwise they'll be ignored by Cargo and won't be built.
+# It's necessary to include all metawasm crates in the workspace section, otherwise they'll be
+# ignored by Cargo and won't be built.
 [workspace]
-members = ["state"]
+members = ["state", "xtask"]
+
+[workspace.dependencies]
+gstd = { git = "https://github.com/gear-tech/gear", tag = "v0.3.3" }
+gmeta = { git = "https://github.com/gear-tech/gear", tag = "v0.3.3" }
+gear-wasm-builder = { git = "https://github.com/gear-tech/gear", tag = "v0.3.3" }
+gtest = { git = "https://github.com/gear-tech/gear", tag = "v0.3.3" }
+gclient = { git = "https://github.com/gear-tech/gear", tag = "v0.3.3" }
+template-io.path = "io"
+tokio = "1"
+xshell = "0.2"
+anyhow = "1"

@@ -1,9 +1,9 @@
 [package]
-name = "template-io"
+name = "xtask"
 version.workspace = true
 edition.workspace = true
 publish.workspace = true
 
 [dependencies]
-gmeta.workspace = true
-gstd.workspace = true
+xshell.workspace = true
+anyhow.workspace = true

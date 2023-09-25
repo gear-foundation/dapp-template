@@ -1,66 +1,71 @@
-//! Data types for the contract input/output.
-
 #![no_std]
 
-use gmeta::{InOut, Metadata};
+use gmeta::{InOut, Metadata, Out};
 use gstd::{prelude::*, ActorId};
 
-/// The main type used as an input and output message.
-#[derive(Encode, Decode, TypeInfo, Hash, PartialEq, PartialOrd, Eq, Ord, Clone, Copy, Debug)]
+/// The contract metadata. Used by frontend apps & for describing the types of messages that can be
+/// sent in contract's entry points. See also [`Metadata`].
+pub struct ContractMetadata;
+
+/// `()` means the contract doesn't process & reply messages at the above written entry point or
+/// doesn't implement it.
+impl Metadata for ContractMetadata {
+    /// I/O types for the `init()` entry point.
+    type Init = ();
+    /// I/O types for the `handle()` entry point.
+    ///
+    /// Here the [`PingPong`] type is used for both incoming and outgoing messages.
+    type Handle = InOut<PingPong, PingPong>;
+    /// Types for miscellaneous scenarios.
+    type Others = ();
+    /// The input type for the `handle_reply()` entry point.
+    type Reply = ();
+    /// The output type for the `handle_signal()` entry point.
+    type Signal = ();
+    /// I/O types for the `state()` entry point.
+    ///
+    /// You can also specify just an output ([`Out`]) or input ([`In`](gmeta::In)) type, if both
+    /// ([`InOut`]) are expected like here.
+    type State = Out<State>;
+}
+
+pub type State = Vec<(ActorId, u128)>;
+
+/// Replies with [`Pong`](PingPong::Pong) if received [`Ping`](PingPong::Ping).
+#[derive(Encode, Decode, TypeInfo, Debug, PartialEq, Eq)]
+#[codec(crate = gstd::codec)]
+#[scale_info(crate = gstd::scale_info)]
 pub enum PingPong {
-    /// Ping request.
     Ping,
-    /// Pong reply.
     Pong,
 }
 
-/// Contract metadata. This is the contract's interface description.
+/// Queries the contract state.
 ///
-/// It defines the types of messages that can be sent to the contract.
-pub struct ContractMetadata;
+/// Used in the `state` crate.
+#[derive(Encode, Decode, TypeInfo)]
+#[codec(crate = gstd::codec)]
+#[scale_info(crate = gstd::scale_info)]
+pub enum StateQuery {
+    /// Gets the list of actors who have [`ping`](PingPong::Ping)ed the contract.
+    ///
+    /// Returns [`StateQueryReply::Pingers`].
+    Pingers,
+    /// Gets the count of [`ping`](PingPong::Ping)s received from the given [`ActorId`].
+    ///
+    /// Returns [`StateQueryReply::PingCount`].
+    PingCount(ActorId),
+}
 
-impl Metadata for ContractMetadata {
-    /// Init message type.
-    ///
-    /// Describes incoming/outgoing types for the `init()` function.
-    ///
-    /// The unit tuple is used as neither incoming nor outgoing messages are
-    /// expected in the `init()` function.
-    type Init = ();
-    /// Handle message type.
-    ///
-    /// Describes incoming/outgoing types for the `handle()` function.
-    ///
-    /// We use the same [`PingPong`] type for both incoming and outgoing
-    /// messages.
-    type Handle = InOut<PingPong, PingPong>;
-    /// Asynchronous handle message type.
-    ///
-    /// Describes incoming/outgoing types for the `main()` function in case of
-    /// asynchronous interaction.
-    ///
-    /// The unit tuple is used as we don't use asynchronous interaction in this
-    /// contract.
-    type Others = ();
-    /// Reply message type.
-    ///
-    /// Describes incoming/outgoing types of messages performed using the
-    /// `handle_reply()` function.
-    ///
-    /// The unit tuple is used as we don't process any replies in this contract.
-    type Reply = ();
-    /// Signal message type.
-    ///
-    /// Describes only the outgoing type from the program while processing the
-    /// system signal.
-    ///
-    /// The unit tuple is used as we don't process any signals in this contract.
-    type Signal = ();
-    /// State message type.
-    ///
-    /// Describes the type for the queried state returned by the `state()`
-    /// function.
-    ///
-    /// We use a list of ping counts (`u128`) for each pinger (`ActorId`).
-    type State = Vec<(ActorId, u128)>;
+/// The result of successfully processed [`StateQuery`].
+///
+/// Used in the `state` crate.
+#[derive(Encode, Decode, TypeInfo, PartialEq, Eq, Debug)]
+#[codec(crate = gstd::codec)]
+#[scale_info(crate = gstd::scale_info)]
+pub enum StateQueryReply {
+    /// Returned from [`StateQuery::Pingers`].
+    Pingers(Vec<ActorId>),
+    /// Returned from [`StateQuery::PingCount`].
+    PingCount(u128),
 }

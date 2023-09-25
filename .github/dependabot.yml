@@ -1,12 +1,12 @@
 version: 2
 updates:
   - package-ecosystem: "cargo"
-    directory: "/"
+    directory: "."
     labels: ["A4-insubstantial"]
     schedule:
       interval: "daily"
   - package-ecosystem: "github-actions"
-    directory: "/"
+    directory: "."
     labels: ["A4-insubstantial"]
     schedule:
       interval: "daily"
