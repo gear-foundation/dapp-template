@@ -11,13 +11,13 @@ fn state_mut() -> &'static mut HashMap<ActorId, u128> {
 
 // The `init()` entry point.
 #[no_mangle]
-extern "C" fn init() {
+extern fn init() {
     unsafe { STATE = Some(HashMap::new()) }
 }
 
 // The `handle()` entry point.
 #[no_mangle]
-extern "C" fn handle() {
+extern fn handle() {
     process_handle().expect("failed to load, decode, encode, or reply from `handle()`")
 }
 
@@ -40,7 +40,7 @@ fn process_handle() -> Result<()> {
 
 // The `state()` entry point.
 #[no_mangle]
-extern "C" fn state() {
+extern fn state() {
     reply(State::from_iter(state_mut().clone().into_iter()))
         .expect("failed to encode or reply from `state()`")
 }
