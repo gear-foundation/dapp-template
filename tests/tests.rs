@@ -36,7 +36,7 @@ fn test() {
         expected_state.push((actor.into(), 1))
     }
 
-    let mut state: Vec<(ActorId, u128)> = program.read_state().unwrap();
+    let mut state: Vec<(ActorId, u128)> = program.read_state(b"").unwrap();
 
     expected_state.sort_unstable();
     state.sort_unstable();
@@ -49,7 +49,9 @@ fn test() {
 
     assert!(result.contains(&Log::builder().payload(PingPong::Pong)));
 
-    let StateQueryReply::PingCount(ping_count) = program.read_state_using_wasm(
+    let StateQueryReply::PingCount(ping_count) = program
+        .read_state_using_wasm(
+            b"",
             "query",
             state_binary.clone(),
             Some(StateQuery::PingCount(ActorId::from(2))),
@@ -64,7 +66,7 @@ fn test() {
     // Querying the state using the `pingers` metafunction
 
     let mut pingers: Vec<ActorId> = program
-        .read_state_using_wasm::<(), _>("pingers", state_binary, None)
+        .read_state_using_wasm::<(), _, _>(b"", "pingers", state_binary, None)
         .unwrap();
 
     pingers.sort_unstable();
@@ -114,7 +116,7 @@ async fn gclient_test() -> Result<()> {
         .await?
         .min_limit;
     (message_id, _) = client
-        .send_message(program_id, PingPong::Ping, gas_limit, 0, false)
+        .send_message(program_id, PingPong::Ping, gas_limit, 0)
         .await?;
 
     let (_, raw_reply, _) = listener.reply_bytes_on(message_id).await?;

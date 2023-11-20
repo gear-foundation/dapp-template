@@ -41,8 +41,7 @@ fn process_handle() -> Result<()> {
 // The `state()` entry point.
 #[no_mangle]
 extern fn state() {
-    reply(State::from_iter(state_mut().clone().into_iter()))
-        .expect("failed to encode or reply from `state()`")
+    reply(State::from_iter(state_mut().clone())).expect("failed to encode or reply from `state()`")
 }
 
 fn reply(payload: impl Encode) -> Result<()> {
