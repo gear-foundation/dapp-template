@@ -22,8 +22,7 @@ jobs:
 
       - name: ${{ github.ref_type == 'tag' && 'Build' || 'Build & CI' }}
         run: |
-          sudo apt-get update
-          sudo apt-get install binaryen
+          sudo apt-get update && sudo apt-get install -y binaryen
           [ $GITHUB_REF_TYPE = "tag" ] && cargo b --workspace || cargo xtask ci
 
       - name: Update the nightly tag
