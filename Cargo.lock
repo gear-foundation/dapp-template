@@ -5848,6 +5848,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "template-app"
+version = "0.1.0"
+dependencies = [
+ "gstd",
+ "template-io",
+]
+
+[[package]]
 name = "template-io"
 version = "0.1.0"
 dependencies = [

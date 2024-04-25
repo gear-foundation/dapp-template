@@ -1,0 +1,9 @@
+[package]
+name = "template-app"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+gstd.workspace = true
+template-io.workspace = true
