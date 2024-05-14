@@ -31,11 +31,11 @@ tokio.workspace = true
 members = ["app", "state", "xtask"]
 
 [workspace.dependencies]
-gstd = "1.3.0"
-gmeta = "1.3.0"
-gear-wasm-builder = "1.3.0"
-gtest = "1.3.0"
-gclient = "1.3.0"
+gstd = { git = "https://github.com/gear-tech/gear", branch = "av/gsys-define-symbols" }
+gmeta = { git = "https://github.com/gear-tech/gear", branch = "av/gsys-define-symbols" }
+gear-wasm-builder = { git = "https://github.com/gear-tech/gear", branch = "av/gsys-define-symbols" }
+gtest = { git = "https://github.com/gear-tech/gear", branch = "av/gsys-define-symbols" }
+gclient = { git = "https://github.com/gear-tech/gear", branch = "av/gsys-define-symbols" }
 template-io.path = "io"
 tokio = "1"
 xshell = "0.2"
